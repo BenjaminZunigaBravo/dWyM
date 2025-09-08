@@ -1,191 +1,184 @@
 /* ---------------------- */
 /* RESET Y TIPOGRAFÍA */
-* {
+* { /* Selector universal */
     box-sizing: border-box; /* Incluye padding y borde en el tamaño */
     margin: 0; /* Elimina margen por defecto */
     padding: 0; /* Elimina padding por defecto */
-}
+} /* Cierra * */
 
-body {
+body { /* Cuerpo del documento */
     font-family: 'Roboto', sans-serif; /* Fuente principal */
     background-color: #57035f; /* Fondo morado oscuro */
     color: #fff; /* Color de texto blanco */
-}
+} /* Cierra body */
 
 /* ---------------------- */
 /* HEADER Y NAVEGACIÓN */
-/* ============================
-   Estilo para barra de navegación
-   ============================ */
-.barra-arriba {
+/* ============================ */
+/* Estilo para barra de navegación */
+.barra-arriba { /* Barra superior */
   background-color: #523c5c; /* morado */
-  padding: 0.5rem 0;
-}
+  padding: 0.5rem 0; /* Espaciado vertical */
+} /* Cierra .barra-arriba */
 
-.barra-arriba .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+.barra-arriba .container { /* Contenedor de la barra */
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Centra verticalmente */
+  justify-content: space-between; /* Espaciado entre elementos */
+  width: 100%; /* Ancho total */
+} /* Cierra .barra-arriba .container */
 
-.menu-opciones-barra {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.menu-opciones-barra { /* Lista de opciones */
+  list-style: none; /* Quita viñetas */
+  margin: 0; /* Sin margen */
+  padding: 0; /* Sin padding */
+  display: flex; /* Flexbox en horizontal */
+  justify-content: center; /* Centra elementos */
+  align-items: center; /* Centra verticalmente */
+} /* Cierra .menu-opciones-barra */
 
-.menu-opciones-barra li {
-  margin: 0 1rem;
-}
+.menu-opciones-barra li { /* Ítems de la lista */
+  margin: 0 1rem; /* Separación lateral */
+} /* Cierra li */
 
-.menu-opciones-barra a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-}
+.menu-opciones-barra a { /* Enlaces del menú */
+  color: white; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 500; /* Semi-negrita */
+  position: relative; /* Necesario para ::after */
+} /* Cierra a */
 
-.menu-opciones-barra a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #d1d5ff;
-  transition: width 0.3s;
-}
+.menu-opciones-barra a::after { /* Línea animada debajo */
+  content: ''; /* Elemento vacío */
+  position: absolute; /* Posiciona dentro del enlace */
+  width: 0; /* Inicialmente invisible */
+  height: 2px; /* Grosor */
+  bottom: 0; /* Abajo del enlace */
+  left: 0; /* Inicia desde la izquierda */
+  background-color: #d1d5ff; /* Color azul claro */
+  transition: width 0.3s; /* Animación */
+} /* Cierra ::after */
 
-.menu-opciones-barra a:hover::after {
-  width: 100%;
-}
+.menu-opciones-barra a:hover::after { /* Hover de enlace */
+  width: 100%; /* Línea se expande */
+} /* Cierra hover */
 
-/* ============================
-   Botón JUGAR en la barra
-   ============================ */
-.barra-arriba .btn-jugar {
+/* ============================ */
+/* Botón JUGAR en la barra */
+.barra-arriba .btn-jugar { /* Botón dentro de barra */
     background-color: #4e1a60; /* morado principal */
-    color: #ffffff;
-    font-weight: bold;
-    padding: 0.5rem 1.2rem;
-    border-radius: 8px;
-    border: none;
-    transition: background-color 0.3s;
-}
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold; /* Negrita */
+    padding: 0.5rem 1.2rem; /* Relleno */
+    border-radius: 8px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s; /* Animación */
+} /* Cierra .btn-jugar */
 
-.barra-arriba .btn-jugar:hover {
-    background-color: #6e55f3; /* morado más claro al pasar el mouse */
-}
-
+.barra-arriba .btn-jugar:hover { /* Hover botón */
+    background-color: #6e55f3; /* morado más claro al pasar */
+} /* Cierra hover */
 
 /* ---------------------- */
 /* SECCIONES */
-section {
+section { /* Estilos de secciones */
     background-color: #3a0d3c; /* Fondo de sección */
-    color: #ffffff; /* Color de texto de sección */
+    color: #ffffff; /* Texto blanco */
     border-radius: 20px; /* Bordes redondeados */
-    margin: 30px auto; /* Margen arriba/abajo y centrado horizontal */
+    margin: 30px auto; /* Margen vertical y centrado */
     padding: 40px 50px; /* Espaciado interno */
-    max-width: 1100px; /* Ancho máximo */
-    box-shadow: 0 10px 0px rgba(0,0,0,0.6); /* Sombra sutil */
-}
+    max-width: 1100px; /* Máximo ancho */
+    box-shadow: 0 10px 0px rgba(0,0,0,0.6); /* Sombra */
+} /* Cierra section */
 
-section h2 {
+section h2 { /* Títulos */
     font-family: 'Overpass', sans-serif; /* Fuente de títulos */
-    font-size: 2.5em; /* Tamaño grande */
-    margin-bottom: 25px; /* Espacio debajo del título */
+    font-size: 2.5em; /* Grande */
+    margin-bottom: 25px; /* Espacio inferior */
     text-align: center; /* Centrado */
-    color: #ffffff; /* Color blanco */
-}
+    color: #ffffff; /* Blanco */
+} /* Cierra h2 */
 
-section p {
-    font-family: 'Roboto', sans-serif; /* Fuente de párrafos */
-    font-size: 1.25em; /* Tamaño de texto */
+section p { /* Párrafos */
+    font-family: 'Roboto', sans-serif; /* Fuente */
+    font-size: 1.25em; /* Texto más grande */
     line-height: 1.8; /* Interlineado */
-    margin-bottom: 20px; /* Espacio debajo del párrafo */
+    margin-bottom: 20px; /* Espacio inferior */
     text-align: justify; /* Justificado */
     color: #e0e0e0; /* Gris claro */
-    font-weight: 700; /* Negrita ligera para resaltar */
+    font-weight: 700; /* Semi-negrita */
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra sutil */
-}
+} /* Cierra p */
 
-section a {
-    color: #ffd700; /* Color de enlaces dentro de secciones */
+section a { /* Enlaces dentro de secciones */
+    color: #ffd700; /* Dorado */
     text-decoration: none; /* Sin subrayado */
     font-weight: bold; /* Negrita */
-}
+} /* Cierra a */
 
 /* Hover en párrafos de reglas */
 #reglas p,
 #tipos-apuesta p,
 #pagos p,
-#responsable p {
-    transition: all 0.3s ease;
-    cursor: default; /* indica que es texto */
-}
+#responsable p { /* Párrafos específicos */
+    transition: all 0.3s ease; /* Animación */
+    cursor: default; /* Cursor de texto */
+} /* Cierra selección múltiple */
 
 #reglas p:hover,
 #tipos-apuesta p:hover,
 #pagos p:hover,
-#responsable p:hover {
-    color: #ffffff; /* cambia a dorado elegante */
-    padding: 5px 10px; /* pequeño padding para el efecto */
-    border-radius: 5px; /* bordes redondeados */
-}
+#responsable p:hover { /* Hover en esos párrafos */
+    color: #ffffff; /* Cambia a blanco */
+    padding: 5px 10px; /* Efecto padding */
+    border-radius: 5px; /* Bordes redondeados */
+} /* Cierra hover */
+
 /* ---------------------- */
 /* FOOTER */
-footer {
+footer { /* Pie de página */
     background-color: #523c5c; /* Fondo del footer */
     color: #fff; /* Texto blanco */
     text-align: center; /* Centrado */
     padding: 15px 0; /* Espaciado vertical */
-    margin-top: 40px; /* Separación con el contenido */
-}
+    margin-top: 40px; /* Separación superior */
+} /* Cierra footer */
 
 /* ---------------------- */
 /* FUENTE MÁS GRUESA Y SOMBRAS */
 #hero h1,
-section h2 {
+section h2 { /* Títulos principales */
     font-weight: 900; /* Extra negrita */
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra marcada */
-    letter-spacing: 2px; /* Espaciado entre letras */
-}
-
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra fuerte */
+    letter-spacing: 2px; /* Espaciado letras */
+} /* Cierra selección múltiple */
 
 /* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
-.container-fluid .row.p-5 {
-  background-color: #523c5c !important;
-  /* Fondo del footer morado oscuro */
-}
+.container-fluid .row.p-5 { /* Fila del footer */
+  background-color: #523c5c !important; /* Fondo morado oscuro */
+} /* Cierra row.p-5 */
 
 .container-fluid .row .col-xs-12,
 .container-fluid .row .col-md-6,
-.container-fluid .row .col-lg-3 {
-  color: #ffffff;
-  /* Texto del footer en blanco */
-}
+.container-fluid .row .col-lg-3 { /* Columnas del footer */
+  color: #ffffff; /* Texto blanco */
+} /* Cierra columnas */
 
 .container-fluid .row .h3,
-.container-fluid .row .h5 {
-  color: #ffffff;
-  /* Títulos del footer en blanco */
-}
+.container-fluid .row .h5 { /* Títulos del footer */
+  color: #ffffff; /* Blancos */
+} /* Cierra títulos */
 
-.container-fluid .row .text-secondary {
-  color: #e0e0e0 !important;
-  /* Enlaces del footer en gris claro */
-}
-
+.container-fluid .row .text-secondary { /* Texto secundario */
+  color: #e0e0e0 !important; /* Gris claro */
+} /* Cierra text-secondary */
 
 /* ---------------------- */
 /* FUENTE MÁS GRUESA Y SOMBRAS */
+/* DUPLICADO */
 #hero h1,
-section h2 {
+section h2 { /* Títulos principales */
     font-weight: 900; /* Extra negrita */
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra marcada */
-    letter-spacing: 2px; /* Espaciado entre letras */
-}
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra fuerte */
+    letter-spacing: 2px; /* Espaciado letras */
+} /* Cierra selección múltiple */
