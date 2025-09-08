@@ -1,0 +1,331 @@
+/* ---------------------- */
+/* ESTILOS GENERALES DEL BODY */
+/* ---------------------- */
+body {
+    background-color: #57035f; /* color de fondo principal */
+    font-family: 'Roboto', sans-serif; /* fuente de texto */
+    color: #ffffff; /* color de texto por defecto */
+    margin: 0; /* quitar margen por defecto del navegador */
+    padding: 0; /* quitar padding por defecto del navegador */
+}
+
+/* ---------------------- */
+/* HEADER Y NAVEGACIÓN */
+/* ---------------------- */
+.site-header {
+    background-color: #523c5c; /* color de fondo del header */
+}
+
+.menu {
+    list-style: none; /* quitar viñetas de la lista */
+    padding: 0; /* quitar padding interno */
+    margin: 0; /* quitar margen externo */
+    gap: 30px; /* separación entre los elementos del menú */
+    
+}
+
+.menu a {
+    color: #ffffff; /* color de los enlaces */
+    font-weight: bold; /* texto en negrita */
+    text-decoration: none; /* quitar subrayado */
+
+    transition: all 0.3s ease;
+    
+}
+
+.menu a:hover {
+    color: #4400ff; /* color al pasar el mouse sobre el enlace */
+}
+
+/* ---------------------- */
+/* TITULO RULETA */
+/* ---------------------- */
+h1.text-center {
+    font-size: 4em; /* tamaño grande del título */
+    color: #ffffff; /* color blanco */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* sombra del texto */
+    font-weight: 900; /* negrita extrema */
+    letter-spacing: 2px; /* espacio entre letras */
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------- */
+/* ALERTA DE JUEGO */
+/* ---------------------- */
+.alert {
+    border-radius: 10px; /* bordes redondeados */
+    font-weight: bold; /* texto en negrita */
+    text-align: center; /* centrado */
+    color: #ffffff !important; /* texto blanco */
+    background-color: #dfa0d1 !important; /* fondo rosa */
+    border: none; /* quitar borde */
+    max-width: 800px; /* ancho máximo */
+    margin: 20px auto; /* centrar horizontalmente */
+}
+
+/* ---------------------- */
+/* SALDO DISPONIBLE */
+/* ---------------------- */
+.saldo-disponible {
+    background: linear-gradient(135deg, #6a4c8f, #8f61b0); /* degradado de colores */
+    color: #ffffff; /* texto blanco */
+    padding: 20px 30px; /* espacio interno */
+    border-radius: 20px; /* bordes redondeados */
+    max-width: 400px; /* ancho máximo */
+    margin: auto; /* centrar */
+    font-weight: 900; /* negrita extrema */
+    font-size: 1.5rem; /* tamaño del texto */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4); /* sombra suave */
+    text-align: center; /* texto centrado */
+    letter-spacing: 1px; /* espacio entre letras */
+}
+
+.saldo-disponible span {
+    color: #ffd700; /* color dorado para resaltar monto */
+}
+
+/* ---------------------- */
+/* ESTADO DEL JUEGO */
+/* ---------------------- */
+.estado-juego {
+    background-color: #2e0033; /* fondo morado oscuro */
+    color: #fff; /* texto blanco */
+    border-radius: 10px; /* bordes redondeados */
+    font-weight: bold; /* texto en negrita */
+    max-width: 400px; /* ancho máximo */
+    margin: 20px auto; /* centrar horizontalmente */
+    padding: 15px; /* padding interno */
+    text-align: center; /* texto centrado */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* sombra */
+}
+
+/* ---------------------- */
+/* TABLA DE APUESTAS OSCURA */
+/* ---------------------- */
+.tabla-apuestas {
+    width: 100%; /* ocupa todo el ancho */
+    border-radius: 15px; /* bordes redondeados */
+    overflow: hidden; /* ocultar contenido que sobresalga */
+    border: 2px solid #4a2e5e; /* borde principal */
+    background-color: #33003d; /* fondo oscuro */
+    color: #fff; /* texto blanco */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4); /* sombra suave */
+}
+
+.tabla-apuestas th, .tabla-apuestas td {
+    padding: 12px 15px; /* espacio interno de las celdas */
+    border-bottom: 1px solid #4a2e5e; /* línea inferior */
+    text-align: center; /* texto centrado */
+    font-weight: 500; /* peso de fuente medio */
+}
+
+.tabla-apuestas th {
+    background-color: #4a2e5e; /* fondo encabezados */
+    color: #ffffff; /* texto blanco */
+    font-size: 1.1em; /* tamaño del texto */
+}
+
+/* colores de resultados */
+.ganado { color: #00ff00; font-weight: bold; } /* verde */
+.perdido { color: #ff5555; font-weight: bold; } /* rojo */
+
+/* efecto hover sobre filas */
+.tabla-apuestas tbody tr:hover {
+    background-color: rgba(255,255,255,0.05); /* cambio de fondo al pasar mouse */
+}
+
+/* ---------------------- */
+/* TABLA DE ÚLTIMOS 5 NÚMEROS - ESTILIZADO BONITO */
+/* ---------------------- */
+.tabla-recientes-wrapper {
+    width: 100%;
+    max-width: 100%;
+    color: white; /* texto blanco */
+    background-color: #2b0c3b; /* fondo de la tabla */
+    border-radius: 15px; /* bordes redondeados */
+    border: 2px solid #5a2e6a; /* borde sutil */
+    padding: 15px 0; /* padding superior e inferior */
+    text-align: center; /* centrado */
+    margin-bottom: 55px;
+    display: flex; /* usar flexbox */
+    justify-content: center; /* centrar contenido horizontalmente */
+    gap: 15px; /* separación entre los círculos */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* sombra */
+}
+
+.tabla-recientes-wrapper table {
+    width: auto; /* no forzar ancho */
+    border-collapse: collapse; /* colapsar bordes */
+    background: transparent; /* fondo transparente */
+    gap: 50px; /* separación entre columnas */
+}
+
+.tabla-recientes-wrapper th,
+.tabla-recientes-wrapper td {
+    background: transparent; /* quitar fondo de celdas */
+    border: none; /* quitar borde de celdas */
+    padding: 0; /* quitar padding para ajustar círculos */
+}
+
+/* ---------------------- */
+/* CÍRCULOS DE ÚLTIMOS NÚMEROS */
+.tabla-recientes-wrapper .circle-red,
+.tabla-recientes-wrapper .circle-black,
+.tabla-recientes-wrapper .circle-green {
+    width: 60px; /* diámetro del círculo */
+    height: 60px;
+    border-radius: 50%; /* forma circular */
+    display: flex;
+    align-items: center; /* centrar vertical */
+    justify-content: center; /* centrar horizontal */
+    font-size: 1.2em; /* tamaño del número */
+    font-weight: bold; /* negrita */
+    color: #fff; /* texto blanco */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5); /* sombra */
+    transition: transform 0.2s; /* efecto hover suave */
+}
+
+.tabla-recientes-wrapper .circle-red:hover,
+.tabla-recientes-wrapper .circle-black:hover,
+.tabla-recientes-wrapper .circle-green:hover {
+    transform: scale(1.1); /* agrandar al pasar mouse */
+}
+
+/* número dentro del círculo */
+.circle-number {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* colores de círculos */
+.circle-red { background-color: red; }
+.circle-black { background-color: black; }
+.circle-green { background-color: green; }
+
+/* ---------------------- */
+/* RULETA PRINCIPAL */
+.ruleta-img {
+    border-radius: 50%; /* circular */
+    box-shadow: 0 0 30px 10px #330030; /* resaltar la ruleta */
+    max-width: 600px; /* ancho máximo */
+    height: 600px; /* altura fija */
+}
+
+/* ---------------------- */
+/* MESA DE RULETA NUMEROS 0-36 */
+.mesa {
+    background-color: #33092c; /* fondo de la mesa */
+    padding: 1px;
+    border-radius: 5px; /* bordes redondeados */
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex; /* usar flexbox */
+    flex-wrap: wrap; /* permitir varias filas */
+}
+
+.celda {
+    flex: 1 0 8%; /* ancho flexible */
+    min-width: 80px;
+    height: 80px;
+    margin: 2px; /* espacio entre celdas */
+    display: flex;
+    align-items: center; /* centrar vertical */
+    justify-content: center; /* centrar horizontal */
+    color: #fff; /* texto blanco */
+    font-weight: bold; /* negrita */
+    border: 1px solid #fff; /* borde blanco */
+    border-radius: 5px;
+}
+
+.celda-0 { background-color: #019231; } /* verde */
+.celda-rojo { background-color: #ff0000; }
+.celda-negro { background-color: #000000; }
+
+/* ---------------------- */
+/* APUESTAS EXTERNAS */
+.celda-externa {
+    flex: 1 0 22%; /* ancho flexible */
+    min-width: 80px;
+    height: 80px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.docena1, .docena2, .docena3, .mitad1, .par, .impar, .mitad2 { background-color: #1c061d; }
+.rojo { background-color: #ff0000; }
+.negro { background-color: #000; }
+
+/* ---------------------- */
+/* FONDO DEL JUEGO */
+.juego-fondo {
+    background-color: #3a0d3c; /* fondo principal */
+    padding: 20px;
+    border-radius: 5px; /* bordes redondeados */
+    margin: 40px auto;
+    max-width: 1300px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.6); /* sombra general */
+}
+
+/* ---------------------- */
+/* ÚLTIMOS 5 NÚMEROS - AJUSTES */
+/* ---------------------- */
+.tabla-recientes-wrapper td {
+    padding: 0 20px; /* espacio horizontal entre los círculos */
+}
+
+.tabla-recientes-wrapper th {
+    color: #ffffff; /* encabezados en blanco */
+}
+
+/* ---------------------- */
+/* HOVER EN CELDAS DE APUESTA (mesa y externas) */
+/* ---------------------- */
+.celda-externa:hover,
+.celda:hover {
+    transform: scale(1.05);                    /* pequeño agrandamiento */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);   /* sombra destacada */
+    cursor: pointer;                           /* cambia el cursor a mano */
+    transition: transform 0.2s, box-shadow 0.2s; /* transición suave */
+}
+
+
+/* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
+.container-fluid .row.p-5 {
+  background-color: #523c5c !important;
+  /* Fondo del footer morado oscuro */
+}
+
+.container-fluid .row .col-xs-12,
+.container-fluid .row .col-md-6,
+.container-fluid .row .col-lg-3 {
+  color: #ffffff;
+  /* Texto del footer en blanco */
+}
+
+.container-fluid .row .h3,
+.container-fluid .row .h5 {
+  color: #ffffff;
+  /* Títulos del footer en blanco */
+}
+
+.container-fluid .row .text-secondary {
+  color: #e0e0e0 !important;
+  /* Enlaces del footer en gris claro */
+}
+
+
+/* ---------------------- */
+/* FUENTE MÁS GRUESA Y SOMBRAS */
+#hero h1,
+section h2 {
+    font-weight: 900; /* Extra negrita */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra marcada */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}

@@ -1,0 +1,573 @@
+
+/* ============================
+   Estilos generales y fondo
+   ============================ */
+body {
+    background-color: rgb(68, 43, 99);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+/* HEADER Y NAVEGACIÓN */
+/* ============================
+   Estilo para barra de navegación
+   ============================ */
+.barra-arriba {
+  background-color: #523c5c; /* morado */
+  padding: 0.5rem 0;
+}
+
+.barra-arriba .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu-opciones-barra {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-opciones-barra li {
+  margin: 0 1rem;
+}
+
+.menu-opciones-barra a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.menu-opciones-barra a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1d5ff;
+  transition: width 0.3s;
+}
+
+.menu-opciones-barra a:hover::after {
+  width: 100%;
+}
+
+/* ============================
+   Botón JUGAR en la barra
+   ============================ */
+.barra-arriba .btn-jugar {
+    background-color: #4e1a60; /* morado principal */
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.barra-arriba .btn-jugar:hover {
+    background-color: #6e55f3; /* morado más claro al pasar el mouse */
+}
+
+
+
+
+/* 🔹 Estructura general de la billetera virtual */
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  /* hace que todos los hijos tengan la misma altura */
+  height: 300px;
+  margin: 5% auto;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  gap: 20px;
+}
+
+/* Secciones internas */
+.mitad,
+.mitad-opciones {
+  min-width: 200px;
+  /* 👇 quitamos height fijo, dejamos que el padre controle */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mitad {
+  flex: 1;
+  background-color: #330066;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.profile-header {
+  background-color: #4A0080;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  /* un poco más de espacio arriba y abajo */
+}
+
+.profile-icon {
+  width: 60px;
+  /* más grande */
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  /* opcional, borde blanco para resaltar */
+  object-fit: cover;
+  /* asegura que la imagen no se deforme */
+}
+
+
+.profile-name {
+  margin: 10px 0 0;
+  /* más separación del logo */
+  font-weight: bold;
+  font-size: 1.2rem;
+  /* tamaño más visible */
+  color: #ffffff;
+  /* contraste con el fondo gris */
+}
+
+/* Estilo para el recuadro blanco del perfil */
+.profile-info {
+  background-color: whte;
+  color: black;
+  /* Esto hará que el texto dentro del recuadro sea negro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-balance {
+  display: flex;
+  align-items: center;
+  /* Alinea los ítems verticalmente al centro */
+  justify-content: center;
+  /* Alinea los ítems horizontalmente al centro */
+  gap: 15px;
+  padding: 10px 15px;
+  background-color: #4A0080;
+  border-radius: 10px;
+  width: 90%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-balance img.money-icon {
+  width: 50px;
+  /* más grande para destacar */
+  height: 50px;
+  object-fit: cover;
+}
+
+.profile-balance div {
+  display: flex;
+  flex-direction: column;
+  /* coloca los textos uno debajo del otro */
+  justify-content: center;
+  /* centra verticalmente */
+}
+
+.profile-balance div p {
+  margin: 0;
+  /* elimina márgenes por defecto */
+}
+
+.profile-balance div .balance {
+  font-size: 1.4rem;
+  /* texto más grande */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+
+.money-icon {
+  width: 40px;
+}
+
+.balance {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.mitad-opciones {
+  flex: 2;
+  background-color: #330066;
+  box-shadow: none;
+}
+
+.opcion {
+  flex: 2;
+  min-width: 200px;
+  height: 200px;
+  background: transparent;
+}
+
+.icono {
+  position: absolute;
+  top: 32%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  min-width: 30px;
+  max-width: 80px;
+  height: auto;
+  background-color: transparent;
+}
+
+/* 🔹 Opciones de carga y retiro ------------------*/
+.image-placeholder {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.options-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  background-color: #4A0080;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+.divider {
+  width: 1px;
+  height: 100%;
+  /* alto de la línea */
+  background-color: #663399;
+  margin: 0 15px;
+  /* espacio entre botones */
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+}
+
+.circle.orange {
+  background-color: #FF5733
+}
+
+.circle.blue {
+  background-color: #007BFF;
+}
+
+/* Fondo oscuro -----------------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Cuando se activa con :target */
+.modal:target {
+  display: block;
+}
+
+/* Caja del modal */
+.modal-contenido {
+  background: #4A0080;
+  /* Fondo del modal */
+  color: #ffffff;
+  /* Color de texto general */
+  width: 400px;
+  max-width: 90%;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: #ffffff;
+}
+
+.modal-content label {
+  color: #e0e0e0;
+  /* Color para las etiquetas */
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+  background-color: #663399;
+  /* Fondo de los campos y botones */
+  color: #ffffff;
+  border: 1px solid #8000FF;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Caja del modal */
+.modal-content {
+  background: #4A0080;
+  /* Fondo del modal */
+  color: #ffffff;
+  /* Color de texto general */
+  width: 400px;
+  max-width: 90%;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Botón de cerrar */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.close:hover {
+  color: #FF5733;
+  /* Rojo/naranja al pasar el ratón */
+}
+
+/* 🔹 Historial */
+.historial {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #330066;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.historial h2 {
+  margin-bottom: 10px;
+  /* margen inferior opcional */
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px 15px;
+  /* arriba-abajo 10px, izquierda-derecha 15px */
+  background-color: #4A0080;
+  /* opcional, si quieres ver el área del padding */
+  border-radius: 5px;
+  /* opcional, si quieres bordes redondeados */
+}
+
+.transaccion {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #663399;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.transaccion .arrow-up,
+.transaccion .arrow-down {
+  margin-right: 30px;
+  /* espacio mínimo con .info */
+}
+
+.transaccion .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaccion .monto {
+  margin-left: auto;
+  /* empuja el monto al extremo derecho */
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.transaccion.ganancias {
+  background-color: #663399;
+}
+
+.transaccion.perdidas {
+  background-color: #663399;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  /* elimina espacio a la izquierda */
+}
+
+.info .nombre {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.info .fecha {
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.monto {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 🔹 Flechas -----------------------------------*/
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #28A745;
+  /* Verde para la flecha de arriba (ganancia) */
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #DC3545;
+  /* Rojo para la flecha de abajo (pérdida) */
+}
+
+/* 🔹 Ajustes responsive */
+@media (max-width: 600px) {
+  .contenedor {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .mitad,
+  .opcion {
+    width: 100%;
+    height: auto;
+  }
+
+  .mitad {
+    background: #330066;
+    /* Morado oscuro para el fondo en móvil */
+    margin-bottom: 20px;
+    /* Espacio entre secciones apiladas */
+  }
+
+  .image-placeholder {
+    width: 90%;
+    height: auto;
+    max-height: 150px;
+    margin: 0 auto 20px auto;
+    /* Centrar y añadir margen inferior */
+  }
+
+  .options-bar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .option {
+    margin-bottom: 15px;
+  }
+
+  .divider {
+    display: none;
+    /* Ocultar el divisor en vista móvil */
+  }
+
+  .historial {
+    padding: 15px;
+  }
+
+  .transaccion {
+    flex-direction: row;
+    /* Mantener horizontal en móvil si el espacio lo permite */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .info {
+    margin-left: 0;
+  }
+
+  .monto {
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+/* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
+.container-fluid .row.p-5 {
+  background-color: #523c5c !important;
+  /* Fondo del footer morado oscuro */
+}
+
+.container-fluid .row .col-xs-12,
+.container-fluid .row .col-md-6,
+.container-fluid .row .col-lg-3 {
+  color: #ffffff;
+  /* Texto del footer en blanco */
+}
+
+.container-fluid .row .h3,
+.container-fluid .row .h5 {
+  color: #ffffff;
+  /* Títulos del footer en blanco */
+}
+
+.container-fluid .row .text-secondary {
+  color: #e0e0e0 !important;
+  /* Enlaces del footer en gris claro */
+}
+
+
+/* ---------------------- */
+/* FUENTE MÁS GRUESA Y SOMBRAS */
+#hero h1,
+section h2 {
+    font-weight: 900; /* Extra negrita */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra marcada */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}

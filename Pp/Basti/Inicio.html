@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="Inicio.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="barra-arriba">
+  <div class="container">
+    <!-- Logo a la izquierda -->
+    <a class="navbar-brand me-4" href="/">
+      <img src="logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
+    </a>
+
+    <!-- Opciones centradas -->
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu-opciones-barra">
+    <li><a href="../Guli/reglas.html">Cómo jugar</a></li>
+    <li><a href="infoAplicacion.html">Información</a></li>
+    <li><a href="../Fran/billetera.html">Billetera</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botones a la derecha -->
+    <div>
+      <a class="botones-barra" href="../Benja/Sesion.html">Ingresar</a>
+      <a class="botones-barra" href="../Benja/Registro.html">Registrarse</a>
+    </div>
+  </div>
+</header>
+
+<!-- Main de la página de inicio -->
+<main id="contenido-main">
+  <div class="fondo-imagen"></div> <!-- Fondo difuminado -->
+
+  <div class="contenido-central">
+    <h1 id="texto-arriba">¡Bienvenido al Casino!</h1>
+    <p id="subtexto-arriba">Haz de cada apuesta una historia en nuestro juego de ruleta</p>
+    <button id="boton-jugar" onclick="window.location.href='../Guli/ruleta.html'">
+    ¡JUEGA YA!
+</button>
+  </div>
+</main>
+
+
+</body>
+</html>
