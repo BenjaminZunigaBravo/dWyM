@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la web responsive -->
+  <title>Cómo jugar - Ruleta</title> <!-- Título de la página -->
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> <!-- Librería Bootstrap -->
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="reglas.css"> <!-- Hoja de estilos propia -->
+</head>
+<body>
+
+<!-- ---------------------- -->
+<!-- HEADER / NAVEGACIÓN -->
+<!-- ---------------------- -->
+<header class="site-header barraArriba py-3"> <!-- Cabecera con clases de Bootstrap y propias -->
+  <div class="container d-flex align-items-center"> <!-- Contenedor flexible para logo y menú -->
+    
+    <!-- Logo -->
+    <a class="navbar-brand me-4" href="/"> <!-- Enlace al inicio con margen a la derecha -->
+      <img src="media/logo.png" alt="Logo" width="40" height="40" class="rounded-circle"> <!-- Logo redondeado -->
+    </a>
+
+    <!-- Menú de navegación -->
+    <nav class="main-nav flex-grow-1"> <!-- Menú que ocupa el espacio restante -->
+      <ul class="menu d-flex justify-content-center align-items-center mb-0"> <!-- Lista horizontal centrada -->
+        <li><a href="index.html">Inicio</a></li> <!-- Enlace a Inicio -->
+        <li><a href="perfil">Perfil</a></li> <!-- Enlace a Perfil -->
+        <li><a href="#" onclick="location.reload(); return false;">Cómo jugar</a></li> <!-- Recarga la página actual -->
+        <li><a href="infoAplicacion.html">Quiénes somos</a></li> <!-- Enlace a información -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ---------------------- -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ---------------------- -->
+<div class="juego-fondo"> <!-- Fondo del contenido principal -->
+
+  <!-- Sección principal -->
+  <section id="reglas" class="container my-4 p-4 rounded"> <!-- Contenedor con margen, padding y bordes redondeados -->
+    <h2>Reglas de la Ruleta</h2> <!-- Título de la sección -->
+    <p>La ruleta europea cuenta con 37 casillas numeradas del 0 al 36. El 0 es de color verde, mientras que los demás alternan entre rojo y negro. Cada ronda comienza con el giro de la rueda y el lanzamiento de la bola, cuyo resultado determina las apuestas ganadoras.</p>
+    <p>Las apuestas se dividen según el riesgo y el pago. Conocer estas reglas permite realizar apuestas conscientes y aprovechar las probabilidades de cada tipo de apuesta.</p>
+    <p>El 0 otorga la ventaja a la casa, garantizando que el casino mantenga un margen de ganancia en cada ronda.</p>
+  </section>
+
+  <!-- Tipos de apuesta -->
+  <section id="tipos-apuesta" class="container my-4 p-4 rounded">
+    <h2>Tipos de Apuesta</h2>
+    <p>Las apuestas internas cubren números específicos y ofrecen pagos mayores, incluyendo pleno (1 número), caballo (2 números), calle (3), cuadro (4) y seisena (6). Cuantos más números cubres, menor es el pago.</p>
+    <p>Las apuestas externas abarcan categorías más amplias: color (rojo o negro), par o impar, falta (1–18) / pasa (19–36), docenas y columnas. Estas apuestas tienen mayor probabilidad de éxito y pagos más bajos.</p>
+  </section>
+
+  <!-- Probabilidades y pagos -->
+  <section id="pagos" class="container my-4 p-4 rounded">
+    <h2>Probabilidades y Pagos</h2>
+    <p>Un pleno ofrece un pago de 35:1 con probabilidad de 2,7%. Docenas y columnas pagan 2:1 con probabilidad de 32,4%, mientras que color, par/impar o falta/pasa pagan 1:1 con probabilidad cercana al 48,6%.</p>
+    <p>Comprender estas cifras permite planificar apuestas y gestionar riesgos de manera estratégica, sin dejar de tener en cuenta la ventaja de la casa.
