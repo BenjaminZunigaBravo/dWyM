@@ -1,48 +1,47 @@
-<!doctype html> <!-- Declaración de documento HTML5 -->
-<html lang="es"> <!-- Inicio del documento HTML, idioma español -->
+<!doctype html>
+<html lang="es">
 
 <head>
-    <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ajuste de escala para dispositivos móviles -->
-    <title>Billetera Virtual</title> <!-- Título de la página que aparece en la pestaña -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Billetera Virtual</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> <!-- CSS de Bootstrap externo -->
-    <link rel="stylesheet" href="billetera_Virtual.css"> <!-- CSS personalizado -->
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="billetera_Virtual.css">
 
-    <link rel="icon" href="icono_pagina.jpeg"> <!-- Icono de la pestaña -->
+    <link rel="icon" href="Imagenes_Fran/icono_pagina.jpeg">
 </head>
-<body> <!-- Inicio del body -->
+<body>
 
 
 
 <!-- HEADER / NAVEGACIÓN -->
 <!-- ---------------------- -->
 <!-- Inicio Header -->
-<header class="barra-arriba"> <!-- Header principal con clase personalizada -->
-  <div class="container d-flex align-items-center"> <!-- Contenedor Bootstrap con flexbox y alineación vertical -->
-
+<header class="barra-arriba">
+  <div class="container d-flex align-items-center">
     <!-- Logo a la izquierda -->
-    <a class="navbar-brand me-4" href="/"> <!-- Enlace al inicio, logo a la izquierda -->
-      <img src="logo.png" alt="Logo" width="40" height="40" class="rounded-circle"> <!-- Imagen del logo con bordes redondeados -->
+    <a class="navbar-brand me-4" href="/">
+      <img src="Imagenes_Fran/Logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
     </a>
 
     <!-- Opciones centradas -->
-    <nav class="main-nav flex-grow-1"> <!-- Menú de navegación central, ocupa el espacio disponible -->
-      <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0"> <!-- Lista horizontal centrada -->
-        <li><a href="../Basti/Inicio.html">Inicio</a></li> <!-- Link a Inicio -->
-        <li><a href="../Fran/perfil.html">Perfil</a></li> <!-- Link a Perfil -->
-        <li><a href="../Guli/reglas.html">Cómo jugar</a></li> <!-- Link a Cómo jugar -->
-        <li><a href="../Basti/infoAplicacion.html">Información</a></li> <!-- Link a Información -->
-        <li><a href="../Fran/billetera.html">Billetera</a></li> <!-- Link a Billetera -->
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0">
+        <li><a href="../Basti/Inicio.html">Inicio</a></li>
+        <li><a href="../Fran/perfil.html">Perfil</a></li>
+        <li><a href="../Guli/reglas.html">Cómo jugar</a></li>
+        <li><a href="../Basti/infoAplicacion.html">Información</a></li>
+        <li><a href="../Fran/billetera.html">Billetera</a></li>
       </ul>
     </nav>
 
     <!-- Botón Jugar a la derecha -->
-    <div class="ms-auto"> <!-- Margen automático a la izquierda para empujar contenido a la derecha -->
-      <a href="../Guli/ruleta.html" class="btn btn-jugar">JUGAR</a> <!-- Botón JUGAR -->
+    <div class="ms-auto">
+      <a href="../Guli/ruleta.html" class="btn btn-jugar">JUGAR</a>
     </div>
   </div>
-</header> <!-- Fin del header -->
+</header>
 
 
 
@@ -51,95 +50,94 @@
 <video autoplay muted loop class="video-central">
   <source src="perro.mp4" type="video/mp4" >
 </video>
---> <!-- Video comentado, no se muestra -->
-
+-->
     <!-- Contenido principal de la página -->
-    <div class="contenedor" "> <!-- Contenedor principal -->
-        <div class="mitad"> <!-- Mitad izquierda -->
-            <div class="profile-header"> <!-- Encabezado del perfil -->
-                <img src="usuario.png" alt="Usuario" class="profile-icon"> <!-- Icono del usuario -->
-                <p class="profile-name">Name</p> <!-- Nombre del usuario -->
+    <div class="contenedor" ">
+        <div class="mitad">
+            <div class="profile-header">
+                <img src="Imagenes_Fran/usuario.png" alt="Usuario" class="profile-icon">
+                <p class="profile-name">Name</p>
             </div>
 
-            <div class="profile-balance"> <!-- Balance del usuario -->
-                <img src="money.webp" alt="Dinero" class="money-icon"> <!-- Icono de dinero -->
+            <div class="profile-balance">
+                <img src="Imagenes_Fran/money.webp" alt="Dinero" class="money-icon">
                 <div>
-                    <p>Monto actual:</p> <!-- Texto descriptivo -->
-                    <p class="balance">$10.000</p> <!-- Monto actual -->
+                    <p>Monto actual:</p>
+                    <p class="balance">$10.000</p>
                 </div>
             </div>
         </div>
 
-        <div class="mitad-opciones"> <!-- Mitad derecha -->
-            <img src="images.jpg" class="image-placeholder" alt="Imagen"> <!-- Imagen de placeholder -->
-            <div class="options-bar"> <!-- Barra de opciones -->
-                <a href="#modal-cargar" class="option"> <!-- Enlace que abre modal de cargar dinero -->
+        <div class="mitad-opciones">
+            <img src="Imagenes_Fran/images.jpg" class="image-placeholder" alt="Imagen">
+            <div class="options-bar">
+                <a href="#modal-cargar" class="option">
                     Cargar dinero:
-                    <div class="circle orange"></div> <!-- Indicador visual color naranja -->
+                    <div class="circle orange"></div>
                 </a>
 
-                <div class="divider" style="background-color: black;"></div> <!-- Divisor negro -->
+                <div class="divider" style="background-color: black;"></div>
 
-                <a href="#modal-retirar" class="option"> <!-- Enlace que abre modal de retirar dinero -->
+                <a href="#modal-retirar" class="option">
                     Retirar dinero:
-                    <div class="circle blue"></div> <!-- Indicador visual color azul -->
+                    <div class="circle blue"></div>
                 </a>
             </div>
         </div>
-    </div> <!-- Fin del contenedor principal -->
+    </div>
 
     <!-- Modal Cargar -->
-    <div id="modal-cargar" class="modal"> <!-- Modal para cargar dinero -->
-        <div class="modal-content"> <!-- Contenido del modal -->
-            <h2>Cargar dinero</h2> <!-- Título -->
-            <form> <!-- Formulario -->
-                <label>Monto a cargar:</label> <!-- Etiqueta monto -->
-                <input type="number" placeholder="$0"><br> <!-- Input para monto -->
-                <label>Método de pago:</label> <!-- Etiqueta método de pago -->
-                <select> <!-- Selección de método -->
-                    <option>Tarjeta</option> <!-- Opción tarjeta -->
-                    <option>Transferencia</option> <!-- Opción transferencia -->
+    <div id="modal-cargar" class="modal">
+        <div class="modal-content">
+            <h2>Cargar dinero</h2>
+            <form>
+                <label>Monto a cargar:</label>
+                <input type="number" placeholder="$0"><br>
+                <label>Método de pago:</label>
+                <select>
+                    <option>Tarjeta</option>
+                    <option>Transferencia</option>
                 </select><br>
-                <button type="submit">Confirmar</button> <!-- Botón enviar -->
-                <a href="#" class="close">Cerrar</a> <!-- Cerrar modal -->
+                <button type="submit">Confirmar</button>
+                <a href="#" class="close">Cerrar</a>
             </form>
         </div>
     </div>
 
     <!-- Modal Retirar -->
-    <div id="modal-retirar" class="modal"> <!-- Modal para retirar dinero -->
-        <div class="modal-content"> <!-- Contenido del modal -->
-            <h2>Retirar dinero</h2> <!-- Título -->
-            <form> <!-- Formulario -->
-                <label>Monto a retirar:</label> <!-- Etiqueta monto -->
-                <input type="number" placeholder="$0"><br> <!-- Input -->
-                <label>Método de retiro:</label> <!-- Etiqueta método -->
-                <select> <!-- Selección -->
-                    <option>Cuenta bancaria</option> <!-- Opción cuenta -->
-                    <option>Efectivo</option> <!-- Opción efectivo -->
+    <div id="modal-retirar" class="modal">
+        <div class="modal-content">
+            <h2>Retirar dinero</h2>
+            <form>
+                <label>Monto a retirar:</label>
+                <input type="number" placeholder="$0"><br>
+                <label>Método de retiro:</label>
+                <select>
+                    <option>Cuenta bancaria</option>
+                    <option>Efectivo</option>
                 </select><br>
-                <button type="submit">Confirmar</button> <!-- Botón enviar -->
-                <a href="#" class="close">Cerrar</a> <!-- Cerrar modal -->
+                <button type="submit">Confirmar</button>
+                <a href="#" class="close">Cerrar</a>
             </form>
         </div>
     </div>
 
     <!-- historial -->
 
-    <div class="historial"> <!-- Historial de transacciones -->
-        <h2 >Historial de transacciones:</h2> <!-- Título -->
+    <div class="historial">
+        <h2 >Historial de transacciones:</h2>
 
-        <div class="transaccion ganancias"> <!-- Transacción ganancia -->
-            <span class="arrow-up"></span> <!-- Flecha hacia arriba -->
-            <div class="info"> <!-- Información de la transacción -->
-                <span class="nombre">Juego X</span> <!-- Nombre -->
-                <span class="fecha">fecha</span> <!-- Fecha -->
+        <div class="transaccion ganancias">
+            <span class="arrow-up"></span>
+            <div class="info">
+                <span class="nombre">Juego X</span>
+                <span class="fecha">fecha</span>
             </div>
-            <span class="monto">$100.000</span> <!-- Monto -->
+            <span class="monto">$100.000</span>
         </div>
 
-        <div class="transaccion perdidas"> <!-- Transacción pérdida -->
-            <span class="arrow-down"></span> <!-- Flecha abajo -->
+        <div class="transaccion perdidas">
+            <span class="arrow-down"></span>
             <div class="info">
                 <span class="nombre">Juego X</span>
                 <span class="fecha">fecha</span>
@@ -174,34 +172,40 @@
             <span class="monto">$190.000</span>
         </div>
 
-    </div> <!-- Fin historial -->
+    </div>
 
 
 
 
-    <div class="container-fluid"> <!-- Footer contenedor full width -->
-        <div class="row p-5 pb-2 bg-black text-white"> <!-- Fila con padding, fondo negro, texto blanco -->
-            <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna dirección -->
-                <p class="h3">Dirección</p> <!-- Título -->
-                <p class="text-secondary">Ejecito 441, Santiago.</p> <!-- Dirección -->
+    <div class="container-fluid">
+        <div class="row p-5 pb-2 bg-black text-white">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h3">Dirección</p>
+
+                <p class="text-secondary">Ejecito 441, Santiago.</p>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna recursos -->
+            <div class="col-xs-12 col-md-6 col-lg-3">
                 <p class="h5 mb-3">Recursos</p>
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Blog</a>
+
                 </div>
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Preguntas Frecuentes</a>
+
+            
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna links -->
+            <div class="col-xs-12 col-md-6 col-lg-3">
                 <p class="h5 mb-3">Links</p>
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Terminos y condiciones</a>
                 </div>
+                
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna contactos -->
+            <div class="col-xs-12 col-md-6 col-lg-3">
                 <p class="h5 mb-3">Contactos</p>
+                
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Instagram</a>
                 </div>
@@ -209,8 +213,9 @@
                     <a class="text-secondary text-decoration-none" href="#">Facebook</a>
                 </div>
             </div>
-            <div class="col-xs-12 pt-4"> <!-- Derechos reservados -->
+            <div class="col-xs-12 pt-4">
                 <p class="text-white text-center">© 2025 - Todos los derechos reservados</p>
+
             </div>
         </div>
     </div>
@@ -219,8 +224,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script> <!-- Script de Bootstrap -->
+        </script>
+</body>
 
-</body> <!-- Fin del body -->
-
-</html> <!-- Fin del HTML -->
+</html>

@@ -1,4 +1,3 @@
-
 /* ============================
    Estilos generales y fondo
    ============================ */
@@ -9,23 +8,30 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    font-size: 1rem; /* base */
 }
 
-
-/* HEADER Y NAVEGACIÓN */
 /* ============================
    Estilo para barra de navegación
    ============================ */
 .barra-arriba {
-  background-color: #523c5c; /* morado */
+  background-color: #523c5c;
   padding: 0.5rem 0;
+  width: 100vw;           /* Ocupa todo el ancho de la ventana */
+  position: centered;  /* Centrado horizontal */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .barra-arriba .container {
+  max-width: 100vw;       /* El contenido también ocupa todo el ancho */
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .menu-opciones-barra {
@@ -52,7 +58,7 @@ body {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 0.125rem; /* 2px */
   bottom: 0;
   left: 0;
   background-color: #d1d5ff;
@@ -71,7 +77,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     padding: 0.5rem 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem; /* 8px */
     border: none;
     transition: background-color 0.3s;
 }
@@ -80,28 +86,22 @@ body {
     background-color: #6e55f3; /* morado más claro al pasar el mouse */
 }
 
-
-
-
 /* 🔹 Estructura general de la billetera virtual */
 .contenedor {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  /* hace que todos los hijos tengan la misma altura */
-  height: 300px;
+  height: 18.75rem; /* 300px */
   margin: 5% auto;
   width: 90%;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  gap: 20px;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.4);
+  gap: 1.25rem;
 }
 
 /* Secciones internas */
-.mitad,
-.mitad-opciones {
-  min-width: 200px;
-  /* 👇 quitamos height fijo, dejamos que el padre controle */
+.mitad, .mitad-opciones {
+  min-width: 12.5rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -111,102 +111,87 @@ body {
 .mitad {
   flex: 1;
   background-color: #330066;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.15);
 }
 
 .profile-header {
   background-color: #4A0080;
   width: 100%;
   text-align: center;
-  padding: 15px 0;
-  /* un poco más de espacio arriba y abajo */
+  padding: 0.9375rem 0;
 }
 
 .profile-icon {
-  width: 60px;
-  /* más grande */
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
-  border: 2px solid #ffffff;
-  /* opcional, borde blanco para resaltar */
+  border: 0.125rem solid #ffffff;
   object-fit: cover;
-  /* asegura que la imagen no se deforme */
 }
 
-
 .profile-name {
-  margin: 10px 0 0;
-  /* más separación del logo */
+  margin: 0.625rem 0 0;
   font-weight: bold;
   font-size: 1.2rem;
-  /* tamaño más visible */
   color: #ffffff;
-  /* contraste con el fondo gris */
 }
 
 /* Estilo para el recuadro blanco del perfil */
 .profile-info {
-  background-color: whte;
+  background-color: white;
   color: black;
-  /* Esto hará que el texto dentro del recuadro sea negro */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
 }
 
 .profile-balance {
   display: flex;
   align-items: center;
-  /* Alinea los ítems verticalmente al centro */
   justify-content: center;
-  /* Alinea los ítems horizontalmente al centro */
-  gap: 15px;
-  padding: 10px 15px;
+  gap: 0.9375rem;
+  padding: 0.625rem 0.9375rem;
   background-color: #4A0080;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   width: 90%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
 }
 
 .profile-balance img.money-icon {
-  width: 50px;
-  /* más grande para destacar */
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   object-fit: cover;
 }
 
 .profile-balance div {
   display: flex;
   flex-direction: column;
-  /* coloca los textos uno debajo del otro */
   justify-content: center;
-  /* centra verticalmente */
 }
 
 .profile-balance div p {
   margin: 0;
-  /* elimina márgenes por defecto */
+  font-size: 1rem;
 }
 
 .profile-balance div .balance {
   font-size: 1.4rem;
-  /* texto más grande */
   font-weight: bold;
   color: #ffffff;
 }
 
-
 .money-icon {
-  width: 40px;
+  width: 2.5rem;
 }
 
 .balance {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -218,8 +203,8 @@ body {
 
 .opcion {
   flex: 2;
-  min-width: 200px;
-  height: 200px;
+  min-width: 12.5rem;
+  height: 12.5rem;
   background: transparent;
 }
 
@@ -229,8 +214,8 @@ body {
   left: 25%;
   transform: translate(-50%, -50%);
   width: 30%;
-  min-width: 30px;
-  max-width: 80px;
+  min-width: 1.875rem;
+  max-width: 5rem;
   height: auto;
   background-color: transparent;
 }
@@ -238,9 +223,9 @@ body {
 /* 🔹 Opciones de carga y retiro ------------------*/
 .image-placeholder {
   width: 100%;
-  height: 200px;
+  height: 12.5rem;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   display: block;
 }
 
@@ -249,38 +234,36 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 30px;
+  padding: 1.875rem;
   background-color: #4A0080;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
 }
 
 .option {
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #ffffff;
 }
 
 .divider {
-  width: 1px;
+  width: 0.0625rem;
   height: 100%;
-  /* alto de la línea */
   background-color: #663399;
-  margin: 0 15px;
-  /* espacio entre botones */
+  margin: 0 0.9375rem;
 }
 
 .circle {
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 0.625rem;
   cursor: pointer;
-  border: 2px solid #ffffff;
+  border: 0.125rem solid #ffffff;
 }
 
 .circle.orange {
-  background-color: #FF5733
+  background-color: #FF5733;
 }
 
 .circle.blue {
@@ -299,7 +282,6 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Cuando se activa con :target */
 .modal:target {
   display: block;
 }
@@ -307,110 +289,89 @@ body {
 /* Caja del modal */
 .modal-contenido {
   background: #4A0080;
-  /* Fondo del modal */
   color: #ffffff;
-  /* Color de texto general */
-  width: 400px;
+  width: 25rem;
   max-width: 90%;
   margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
 }
 
 .modal-content h2 {
   color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .modal-content label {
   color: #e0e0e0;
-  /* Color para las etiquetas */
+  font-size: 1rem;
 }
 
 .modal-content input,
 .modal-content select,
 .modal-content button {
   background-color: #663399;
-  /* Fondo de los campos y botones */
   color: #ffffff;
-  border: 1px solid #8000FF;
-  padding: 8px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-/* Caja del modal */
-.modal-content {
-  background: #4A0080;
-  /* Fondo del modal */
-  color: #ffffff;
-  /* Color de texto general */
-  width: 400px;
-  max-width: 90%;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 0.0625rem solid #8000FF;
+  padding: 0.5rem;
+  border-radius: 0.3125rem;
+  margin-bottom: 0.625rem;
+  font-size: 1rem;
 }
 
 .modal-content button:hover {
   background-color: #0056b3;
 }
 
-/* Botón de cerrar */
 .cerrar {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 0.625rem;
+  right: 0.9375rem;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #ffffff;
 }
 
 .close:hover {
   color: #FF5733;
-  /* Rojo/naranja al pasar el ratón */
 }
 
 /* 🔹 Historial */
 .historial {
   width: 90%;
-  margin: 20px auto;
+  margin: 1.25rem auto;
   background-color: #330066;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.4);
 }
 
 .historial h2 {
-  margin-bottom: 10px;
-  /* margen inferior opcional */
-  font-size: 18px;
+  margin-bottom: 0.625rem;
+  font-size: 1.125rem;
   color: #ffffff;
-  padding: 10px 15px;
-  /* arriba-abajo 10px, izquierda-derecha 15px */
+  padding: 0.625rem 0.9375rem;
   background-color: #4A0080;
-  /* opcional, si quieres ver el área del padding */
-  border-radius: 5px;
-  /* opcional, si quieres bordes redondeados */
+  border-radius: 0.3125rem;
 }
 
 .transaccion {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  margin-bottom: 0.3125rem;
   background-color: #663399;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.2);
   color: white;
+  font-size: 1rem;
 }
 
 .transaccion .arrow-up,
 .transaccion .arrow-down {
-  margin-right: 30px;
-  /* espacio mínimo con .info */
+  margin-right: 1.875rem;
 }
 
 .transaccion .info {
@@ -420,63 +381,52 @@ body {
 
 .transaccion .monto {
   margin-left: auto;
-  /* empuja el monto al extremo derecho */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
   color: #ffffff;
-}
-
-.transaccion.ganancias {
-  background-color: #663399;
-}
-
-.transaccion.perdidas {
-  background-color: #663399;
 }
 
 .info {
   display: flex;
   flex-direction: column;
   margin-left: 0;
-  /* elimina espacio a la izquierda */
 }
 
 .info .nombre {
   font-weight: bold;
   color: #ffffff;
+  font-size: 1rem;
 }
 
 .info .fecha {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #e0e0e0;
 }
 
 .monto {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* 🔹 Flechas -----------------------------------*/
 .arrow-up {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 20px solid #28A745;
-  /* Verde para la flecha de arriba (ganancia) */
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 1.25rem solid #28A745;
 }
 
 .arrow-down {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 20px solid #DC3545;
-  /* Rojo para la flecha de abajo (pérdida) */
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-top: 1.25rem solid #DC3545;
 }
 
 /* 🔹 Ajustes responsive */
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   .contenedor {
     flex-direction: column;
     height: auto;
@@ -490,40 +440,35 @@ body {
 
   .mitad {
     background: #330066;
-    /* Morado oscuro para el fondo en móvil */
-    margin-bottom: 20px;
-    /* Espacio entre secciones apiladas */
+    margin-bottom: 1.25rem;
   }
 
   .image-placeholder {
     width: 90%;
     height: auto;
-    max-height: 150px;
-    margin: 0 auto 20px auto;
-    /* Centrar y añadir margen inferior */
+    max-height: 9.375rem;
+    margin: 0 auto 1.25rem auto;
   }
 
   .options-bar {
     flex-direction: column;
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .option {
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
   }
 
   .divider {
     display: none;
-    /* Ocultar el divisor en vista móvil */
   }
 
   .historial {
-    padding: 15px;
+    padding: 0.9375rem;
   }
 
   .transaccion {
     flex-direction: row;
-    /* Mantener horizontal en móvil si el espacio lo permite */
     justify-content: space-between;
     align-items: center;
   }
@@ -538,36 +483,34 @@ body {
   }
 }
 
-/* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
+/* Footer */
 .container-fluid .row.p-5 {
   background-color: #523c5c !important;
-  /* Fondo del footer morado oscuro */
 }
 
 .container-fluid .row .col-xs-12,
 .container-fluid .row .col-md-6,
 .container-fluid .row .col-lg-3 {
   color: #ffffff;
-  /* Texto del footer en blanco */
+  font-size: 1rem;
 }
 
 .container-fluid .row .h3,
 .container-fluid .row .h5 {
   color: #ffffff;
-  /* Títulos del footer en blanco */
 }
 
 .container-fluid .row .text-secondary {
   color: #e0e0e0 !important;
-  /* Enlaces del footer en gris claro */
+  font-size: 0.875rem;
 }
-
 
 /* ---------------------- */
 /* FUENTE MÁS GRUESA Y SOMBRAS */
 #hero h1,
 section h2 {
-    font-weight: 900; /* Extra negrita */
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* Sombra marcada */
-    letter-spacing: 2px; /* Espaciado entre letras */
+    font-weight: 900;
+    text-shadow: 0.1875rem 0.1875rem 0.5rem rgba(0,0,0,0.7);
+    letter-spacing: 0.125rem;
+    font-size: 2rem;
 }

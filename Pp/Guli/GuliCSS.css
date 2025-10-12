@@ -1,0 +1,422 @@
+/* ---------------------- */
+/* RESET Y TIPOGRAFÍA */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #57035f;
+    color: #fff;
+}
+
+/* ---------------------- */
+/* HEADER Y NAVEGACIÓN */
+.site-header {
+    background-color: #523c5c;
+}
+
+.barra-arriba {
+  background-color: #523c5c;
+  padding: 0.5rem 0;
+}
+
+.barra-arriba .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu, .menu-opciones-barra {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu li, .menu-opciones-barra li {
+  margin: 0 1rem;
+}
+
+.menu a, .menu-opciones-barra a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover, .menu-opciones-barra a:hover {
+  color: #4400ff;
+}
+
+.menu-opciones-barra a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1d5ff;
+  transition: width 0.3s;
+}
+
+.menu-opciones-barra a:hover::after {
+  width: 100%;
+}
+
+/* ============================
+   Botón JUGAR en la barra
+   ============================ */
+.barra-arriba .btn-jugar {
+    background-color: #4e1a60;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.barra-arriba .btn-jugar:hover {
+    background-color: #6e55f3;
+}
+
+/* ---------------------- */
+/* TITULO RULETA */
+h1.text-center {
+    font-size: 4em;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------- */
+/* ALERTA DE JUEGO */
+.alert {
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff !important;
+    background-color: #dfa0d1 !important;
+    border: none;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* ---------------------- */
+/* SALDO DISPONIBLE */
+.saldo-disponible {
+    background: linear-gradient(135deg, #6a4c8f, #8f61b0);
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: auto;
+    font-weight: 900;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.saldo-disponible span {
+    color: #ffd700;
+}
+
+/* ---------------------- */
+/* ESTADO DEL JUEGO */
+.estado-juego {
+    background-color: #2e0033;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* ---------------------- */
+/* TABLA DE APUESTAS OSCURA */
+.tabla-apuestas {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #4a2e5e;
+    background-color: #33003d;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.tabla-apuestas th, .tabla-apuestas td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #4a2e5e;
+    text-align: center;
+    font-weight: 500;
+}
+
+.tabla-apuestas th {
+    background-color: #4a2e5e;
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+.ganado { color: #00ff00; font-weight: bold; }
+.perdido { color: #ff5555; font-weight: bold; }
+
+.tabla-apuestas tbody tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* ---------------------- */
+/* TABLA DE ÚLTIMOS 5 NÚMEROS - ESTILIZADO BONITO */
+.tabla-recientes-wrapper {
+    width: 100%;
+    max-width: 100%;
+    color: white;
+    background-color: #2b0c3b;
+    border-radius: 15px;
+    border: 2px solid #5a2e6a;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 55px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.tabla-recientes-wrapper table {
+    width: auto;
+    border-collapse: collapse;
+    background: transparent;
+    gap: 50px;
+}
+
+.tabla-recientes-wrapper th,
+.tabla-recientes-wrapper td {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.tabla-recientes-wrapper .circle-red,
+.tabla-recientes-wrapper .circle-black,
+.tabla-recientes-wrapper .circle-green {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+
+.tabla-recientes-wrapper .circle-red:hover,
+.tabla-recientes-wrapper .circle-black:hover,
+.tabla-recientes-wrapper .circle-green:hover {
+    transform: scale(1.1);
+}
+
+.circle-number {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.circle-red { background-color: red; }
+.circle-black { background-color: black; }
+.circle-green { background-color: green; }
+
+/* ---------------------- */
+/* RULETA PRINCIPAL */
+.ruleta-img {
+    border-radius: 50%;
+    box-shadow: 0 0 30px 10px #330030;
+    max-width: 600px;
+    height: 600px;
+}
+
+/* ---------------------- */
+/* MESA DE RULETA NUMEROS 0-36 */
+.mesa {
+    background-color: #33092c;
+    padding: 1px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.celda {
+    flex: 1 0 8%;
+    min-width: 80px;
+    height: 80px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.celda-0 { background-color: #019231; }
+.celda-rojo { background-color: #ff0000; }
+.celda-negro { background-color: #000000; }
+
+/* ---------------------- */
+/* APUESTAS EXTERNAS */
+.celda-externa {
+    flex: 1 0 22%;
+    min-width: 80px;
+    height: 80px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.docena1, .docena2, .docena3, .mitad1, .par, .impar, .mitad2 { background-color: #1c061d; }
+.rojo { background-color: #ff0000; }
+.negro { background-color: #000; }
+
+/* ---------------------- */
+/* FONDO DEL JUEGO */
+.juego-fondo {
+    background-color: #3a0d3c;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 40px auto;
+    max-width: 1300px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.6);
+}
+
+.tabla-recientes-wrapper td {
+    padding: 0 20px;
+}
+
+.tabla-recientes-wrapper th {
+    color: #ffffff;
+}
+
+.celda-externa:hover,
+.celda:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* ---------------------- */
+/* SECCIONES (Reglas) */
+section {
+    background-color: #3a0d3c;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 30px auto;
+    padding: 40px 50px;
+    max-width: 1100px;
+    box-shadow: 0 10px 0px rgba(0,0,0,0.6);
+}
+
+section h2 {
+    font-family: 'Overpass', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #ffffff;
+}
+
+section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #e0e0e0;
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+section a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#reglas p,
+#tipos-apuesta p,
+#pagos p,
+#responsable p {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+#reglas p:hover,
+#tipos-apuesta p:hover,
+#pagos p:hover,
+#responsable p:hover {
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* ---------------------- */
+/* FOOTER */
+footer {
+    background-color: #523c5c;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* ---------------------- */
+/* FUENTE MÁS GRUESA Y SOMBRAS */
+#hero h1,
+section h2 {
+    font-weight: 900;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+/* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
+.container-fluid .row.p-5 {
+  background-color: #523c5c !important;
+}
+
+.container-fluid .row .col-xs-12,
+.container-fluid .row .col-md-6,
+.container-fluid .row .col-lg-3 {
+  color: #ffffff;
+}
+
+.container-fluid .row .h3,
+.container-fluid .row .h5 {
+  color: #ffffff;
+}
+
+.container-fluid .row .text-secondary {
+  color: #e0e0e0 !important;
+}

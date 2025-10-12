@@ -2,15 +2,23 @@
    Estilo para barra de navegación
    ============================ */
 .barra-arriba {
-  background-color: #523c5c; /* morado */
+  background-color: #523c5c;
   padding: 0.5rem 0;
+  width: 100vw;           /* Ocupa todo el ancho de la ventana */
+  position: centered;  /* Centrado horizontal */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .barra-arriba .container {
+  max-width: 100vw;       /* El contenido también ocupa todo el ancho */
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .menu-opciones-barra {
@@ -37,7 +45,7 @@
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 0.125rem; /* 2px */
   bottom: 0;
   left: 0;
   background-color: #d1d5ff;
@@ -56,7 +64,7 @@
     color: #ffffff;
     font-weight: bold;
     padding: 0.5rem 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem; /* 8px */
     border: none;
     transition: background-color 0.3s;
 }
@@ -83,42 +91,42 @@ body {
    ============================ */
 .login-container {
     background-color: white;
-    border-radius: 28px;
-    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2);
+    border-radius: 1.75rem; /* 28px */
+    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2); /* 10px 25px */
     overflow: hidden;
-    width: 70rem;
-    max-width: 25rem;
+    width: 43.75rem; /* 700px */
+    max-width: 25rem; /* 400px */
     margin: 2rem auto;
 }
 .login-header {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
-    padding: 1.5625rem 1.25rem;
+    padding: 1.5625rem 1.25rem; /* 25px 20px */
     text-align: center;
 }
 .login-header i {
     font-size: 3rem;
-    margin-bottom: 0.9375rem;
+    margin-bottom: 0.9375rem; /* 15px */
 }
 .login-header h2 {
     margin: 0;
     font-weight: 600;
 }
 .login-form {
-    padding: 1.5625rem;
+    padding: 1.5625rem; /* 25px */
 }
 .form-control {
-    border-radius: 3.125rem;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1.25rem;
+    border-radius: 3.125rem; /* 50px */
+    padding: 0.75rem 1.25rem; /* 12px 20px */
+    margin-bottom: 1.25rem; /* 20px */
     border: 1px solid #ddd;
-    height: 3.1rem;
-    min-width: 16rem;
+    height: 3.1rem; /* 49.6px */
+    min-width: 16rem; /* 256px */
     font-size: 1.1rem;
 }
 .form-control:focus {
     border-color: #6a11cb;
-    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25); /* 4px */
 }
 a.float-end {
     text-decoration: none;
@@ -130,26 +138,26 @@ a.float-end:hover {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     border: none;
-    border-radius: 3.125rem;
-    padding: 0.75rem;
+    border-radius: 3.125rem; /* 50px */
+    padding: 0.75rem; /* 12px */
     width: 100%;
     font-weight: 600;
-    margin-top: 0.625rem;
+    margin-top: 0.625rem; /* 10px */
     transition: all 0.3s;
 }
 .btn-login:hover {
     color: white;
-    transform: translateY(-0.1875rem);
-    box-shadow: 0 0.3125rem 0.9375rem rgb(39, 39, 39);
+    transform: translateY(-0.1875rem); /* -3px */
+    box-shadow: 0 0.3125rem 0.9375rem rgb(39, 39, 39); /* 5px 15px */
 }
 .input-group-text {
     background-color: #f3f3f3;
     border: none;
-    border-radius: 3.125rem 0 0 3.125rem;
+    border-radius: 3.125rem 0 0 3.125rem; /* 50px */
     color: #6a11cb;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem; /* 12px 16px */
     font-size: 2.1rem;
-    height: 3.2rem;
+    height: 3.2rem; /* 51.2px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,7 +167,7 @@ a.float-end:hover {
 }
 .login-links {
     text-align: center;
-    margin-top: 1.25rem;
+    margin-top: 1.25rem; /* 20px */
 }
 .login-links a {
     color: #6a11cb;
@@ -172,7 +180,7 @@ a.float-end:hover {
 .divider {
     display: flex;
     align-items: center;
-    margin: 1.25rem 0;
+    margin: 1.25rem 0; /* 20px 0 */
 }
 .divider::before, .divider::after {
     content: "";
@@ -180,19 +188,19 @@ a.float-end:hover {
     border-bottom: 1px solid #ddd;
 }
 .divider span {
-    padding: 0 0.625rem;
+    padding: 0 0.625rem; /* 10px */
     color: #777;
     font-size: 0.9rem;
 }
 .social-login {
     display: flex;
     justify-content: center;
-    gap: 0.9375rem;
-    margin-bottom: 1.25rem;
+    gap: 0.9375rem; /* 15px */
+    margin-bottom: 1.25rem; /* 20px */
 }
 .social-btn {
-    width: 2.8125rem;
-    height: 2.8125rem;
+    width: 2.8125rem; /* 45px */
+    height: 2.8125rem; /* 45px */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -200,10 +208,10 @@ a.float-end:hover {
     color: white;
     font-size: 1.2rem;
     transition: all 0.3s;
-    box-shadow: 0 0.1125rem 0.1375rem rgb(39, 39, 39);
+    box-shadow: 0 0.1125rem 0.1375rem rgb(39, 39, 39); /* 1.8px 2.2px */
 }
 .social-btn:hover {
-    transform: translateY(-0.1875rem);
+    transform: translateY(-0.1875rem); /* -3px */
 }
 .facebook {
     background-color: #3b5998;
@@ -221,10 +229,10 @@ a.float-end:hover {
 .register-container {
     display: flex;
     background-color: white;
-    border-radius: 1.75rem;
-    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2);
+    border-radius: 1.75rem; /* 28px */
+    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2); /* 10px 25px */
     overflow: hidden;
-    width: 80rem;
+    width: 80rem; /* 1280px */
     max-width: 100vw;
     margin: auto;
     height: auto;
@@ -242,53 +250,53 @@ a.float-end:hover {
     height: 100%;
     object-fit: cover;
     display: block;
-    margin-right: 0px;
+    margin-right: 0;
 }
 .register-content {
     flex: 1.2 1 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 38rem;
+    min-width: 38rem; /* 608px */
 }
 .register-form {
-    padding: 1.5625rem;
+    padding: 1.5625rem; /* 25px */
 }
 .register-header {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
-    padding: 1.5625rem 1.25rem;
+    padding: 1.5625rem 1.25rem; /* 25px 20px */
     text-align: center;
-    border-top-right-radius: 1.75rem;
+    border-top-right-radius: 1.75rem; /* 28px */
 }
 .register-header i {
     font-size: 3rem;
-    margin-bottom: 0.9375rem;
+    margin-bottom: 0.9375rem; /* 15px */
 }
 .register-header h2 {
     margin: 0;
     font-weight: 600;
 }
 .form-control {
-    border-radius: 3.125rem;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1.25rem;
+    border-radius: 3.125rem; /* 50px */
+    padding: 0.75rem 1.25rem; /* 12px 20px */
+    margin-bottom: 1.25rem; /* 20px */
     border: 1px solid #ddd;
-    min-width: 16rem;
+    min-width: 16rem; /* 256px */
     font-size: 1.1rem;
 }
 .form-control:focus {
     border-color: #6a11cb;
-    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.25); /* 4px */
 }
 .input-group-text {
     background-color: #f3f3f3;
     border: none;
-    border-radius: 3.125rem 0 0 3.125rem;
+    border-radius: 3.125rem 0 0 3.125rem; /* 50px */
     color: #6a11cb;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem; /* 12px 16px */
     font-size: 1.2rem;
-    height: 3.1rem;
+    height: 3.1rem; /* 49.6px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,22 +308,22 @@ a.float-end:hover {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     border: none;
-    border-radius: 3.125rem;
-    padding: 0.75rem;
+    border-radius: 3.125rem; /* 50px */
+    padding: 0.75rem; /* 12px */
     width: 100%;
     font-weight: 600;
-    margin-top: 0.625rem;
+    margin-top: 0.625rem; /* 10px */
     transition: all 0.3s;
 }
 .btn-register:hover {
     color: white;
-    transform: translateY(-0.1875rem);
-    box-shadow: 0 0.3125rem 0.9375rem rgb(39, 39, 39);
+    transform: translateY(-0.1875rem); /* -3px */
+    box-shadow: 0 0.3125rem 0.9375rem rgb(39, 39, 39); /* 5px 15px */
 }
 .divider {
     display: flex;
     align-items: center;
-    margin: 1.25rem 0;
+    margin: 1.25rem 0; /* 20px 0 */
 }
 .divider::before, .divider::after {
     content: "";
@@ -323,7 +331,7 @@ a.float-end:hover {
     border-bottom: 1px solid #ddd;
 }
 .divider span {
-    padding: 0 0.625rem;
+    padding: 0 0.625rem; /* 10px */
     color: #777;
     font-size: 0.9rem;
 }
@@ -348,12 +356,12 @@ a#show-register-link:hover {
 .social-register {
     display: flex;
     justify-content: center;
-    gap: 0.9375rem;
-    margin-bottom: 1.25rem;
+    gap: 0.9375rem; /* 15px */
+    margin-bottom: 1.25rem; /* 20px */
 }
 .social-btn {
-    width: 2.8125rem;
-    height: 2.8125rem;
+    width: 2.8125rem; /* 45px */
+    height: 2.8125rem; /* 45px */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -361,10 +369,10 @@ a#show-register-link:hover {
     color: white;
     font-size: 1.2rem;
     transition: all 0.3s;
-    box-shadow: 0 0.1125rem 0.1375rem rgb(39, 39, 39);
+    box-shadow: 0 0.1125rem 0.1375rem rgb(39, 39, 39); /* 1.8px 2.2px */
 }
 .social-btn:hover {
-    transform: translateY(-0.1875rem);
+    transform: translateY(-0.1875rem); /* -3px */
 }
 .facebook {
     background-color: #3b5998;
@@ -377,7 +385,7 @@ a#show-register-link:hover {
 }
 .register-links {
     text-align: center;
-    margin-top: 1.25rem;
+    margin-top: 1.25rem; /* 20px */
 }
 .register-links a {
     color: #6a11cb;
@@ -393,25 +401,25 @@ a#show-register-link:hover {
    ============================ */
 .forgot-container {
     background-color: white;
-    border-radius: 2rem;
-    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.18);
+    border-radius: 2rem; /* 32px */
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.18); /* 12px 32px */
     overflow: hidden;
     width: 95%;
-    max-width: 28rem;
+    max-width: 28rem; /* 448px */
     margin: auto;
     margin-top: 2rem;
 }
 .forgot-header {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem; /* 32px 24px */
     text-align: center;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem; /* 32px */
+    border-top-right-radius: 2rem; /* 32px */
 }
 .forgot-header i {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* 16px */
 }
 .forgot-header h2 {
     margin: 0;
@@ -419,45 +427,45 @@ a#show-register-link:hover {
     font-size: 2rem;
 }
 .forgot-form {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem; /* 32px 24px */
 }
 .forgot-form .form-control {
-    border-radius: 2rem;
-    padding: 0.9rem 1.25rem;
-    margin-bottom: 1.5rem;
+    border-radius: 2rem; /* 32px */
+    padding: 0.9rem 1.25rem; /* 14.4px 20px */
+    margin-bottom: 1.5rem; /* 24px */
     border: 1px solid #ddd;
     font-size: 1.1rem;
-    height: 2.8rem;
+    height: 2.8rem; /* 44.8px */
 }
 .forgot-form .form-control:focus {
     border-color: #6a11cb;
-    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.18);
+    box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.18); /* 4px */
 }
 .btn-forgot {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     border: none;
-    border-radius: 2rem;
-    padding: 0.9rem;
+    border-radius: 2rem; /* 32px */
+    padding: 0.9rem; /* 14.4px */
     width: 100%;
     font-weight: 700;
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* 16px */
     transition: all 0.3s;
 }
 .btn-forgot:hover {
     color: white;
-    transform: translateY(-0.15rem);
-    box-shadow: 0 0.3rem 1rem rgb(39, 39, 39, 0.15);
+    transform: translateY(-0.15rem); /* -2.4px */
+    box-shadow: 0 0.3rem 1rem rgb(39, 39, 39, 0.15); /* 4.8px 16px */
 }
 .forgot-form .input-group-text {
     background-color: #f3f3f3;
     border: none;
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 2rem 0 0 2rem; /* 32px */
     color: #6a11cb;
-    padding: 0.9rem 1.1rem;
+    padding: 0.9rem 1.1rem; /* 14.4px 17.6px */
     font-size: 1.3rem;
-    height: 2.8rem;
+    height: 2.8rem; /* 44.8px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -467,7 +475,7 @@ a#show-register-link:hover {
 }
 .login-links {
     text-align: center;
-    margin-top: 1.2rem;
+    margin-top: 1.2rem; /* 19.2px */
 }
 .login-links a {
     color: #6a11cb;

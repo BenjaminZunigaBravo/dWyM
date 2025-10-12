@@ -1,38 +1,37 @@
-<!doctype html> <!-- Define el tipo de documento como HTML5 -->
-<html lang="es"> <!-- Idioma principal: español -->
+<!doctype html>
+<html lang="es">
 <head>
   <!-- Meta etiquetas básicas -->
-  <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace que la web sea responsive -->
-  <title>Ruleta</title> <!-- Título de la página -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruleta</title>
 
   <!-- Bootstrap CDN para estilos rápidos y responsivos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> <!-- Librería Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <!-- CSS personalizado -->
-  <link rel="stylesheet" href="ruleta.css"> <!-- Estilos específicos de la ruleta -->
-  <link rel="stylesheet" href="reglas.css"> <!-- Estilos de reglas -->
+  <link rel="stylesheet" href="GuliCSS.css">
 </head>
 <body>
 
 <!-- ---------------------- -->
 <!-- HEADER / NAVEGACIÓN -->
 <!-- ---------------------- -->
-<header class="site-header barraArriba py-3"> <!-- Header principal con padding vertical -->
-  <div class="container d-flex align-items-center"> <!-- Contenedor centrado y flexbox -->
+<header class="site-header barraArriba py-3">
+  <div class="container d-flex align-items-center">
     <!-- Logo -->
-    <a class="navbar-brand me-4" href="/"> <!-- Enlace del logo con margen derecho -->
-      <img src="logo.png" alt="Logo" width="40" height="40" class="rounded-circle"> <!-- Imagen del logo con bordes redondeados -->
+    <a class="navbar-brand me-4" href="/">
+      <img src="Imagenes_Guli/logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
     </a>
 
     <!-- Menú de navegación -->
-    <nav class="main-nav flex-grow-1"> <!-- Nav principal con flex-grow para ocupar espacio restante -->
-      <ul class="menu d-flex justify-content-center align-items-center mb-0"> <!-- Lista de opciones centrada y alineada -->
-        <li><a href="../Basti/Inicio.html">Inicio</a></li> <!-- Opción de menú 1 -->
-        <li><a href="../Fran/perfil.html">Perfil</a></li> <!-- Opción de menú 2 -->
-        <li><a href="../Guli/reglas.html">Cómo jugar</a></li> <!-- Opción de menú 3 -->
-        <li><a href="../Basti/infoAplicacion.html">Información</a></li> <!-- Opción de menú 4 -->
-        <li><a href="../Fran/billetera.html">Billetera</a></li> <!-- Opción de menú 5 -->
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu d-flex justify-content-center align-items-center mb-0">
+        <li><a href="../Basti/Inicio.html">Inicio</a></li>
+        <li><a href="../Fran/perfil.html">Perfil</a></li>
+        <li><a href="../Guli/reglas.html">Cómo jugar</a></li>
+        <li><a href="../Basti/infoAplicacion.html">Información</a></li>
+        <li><a href="../Fran/billetera.html">Billetera</a></li>
       </ul>
     </nav>
   </div>
@@ -41,58 +40,58 @@
 <!-- ---------------------- -->
 <!-- TITULO PRINCIPAL -->
 <!-- ---------------------- -->
-<h1 class="text-center">RULETA</h1> <!-- Título principal centrado -->
+<h1 class="text-center">RULETA</h1>
 
 <!-- ---------------------- -->
 <!-- ALERTA DE JUEGO -->
 <!-- ---------------------- -->
-<div class="alert" role="alert"> <!-- Mensaje de alerta -->
+<div class="alert" role="alert">
   La ruleta ha marcado la casilla "X" como ganadora, se han actualizado sus apuestas!
 </div>
 
 <!-- ---------------------- -->
 <!-- FONDO DEL JUEGO -->
 <!-- ---------------------- -->
-<div class="juego-fondo"> <!-- Fondo del contenido del juego -->
-  <div class="container mt-4"> <!-- Contenedor centrado con margen superior -->
-    <div class="row"> <!-- Fila para columnas -->
+<div class="juego-fondo">
+  <div class="container mt-4">
+    <div class="row">
 
       <!-- ---------------------- -->
       <!-- SALDO DISPONIBLE -->
       <!-- ---------------------- -->
-      <div class="container text-center my-4"> <!-- Contenedor centrado para saldo -->
+      <div class="container text-center my-4">
         <div class="saldo-disponible">
-          Saldo disponible: <span>$19485948 CLP</span> <!-- Muestra saldo dinámico -->
+          Saldo disponible: <span>$19485948 CLP</span>
         </div>
       </div>
 
       <!-- ---------------------- -->
       <!-- COLUMNA IZQUIERDA: RULETA Y ESTADO -->
       <!-- ---------------------- -->
-      <div class="col-md-6 d-flex flex-column align-items-center"> <!-- Columna izquierda -->
+      <div class="col-md-6 d-flex flex-column align-items-center">
         <!-- Imagen de la ruleta principal -->
-        <img src="ruleta.png" alt="Ruleta" class="img-fluid ruleta-img"> <!-- Imagen responsiva de la ruleta -->
+        <img src="Imagenes_Guli/ruleta.png" alt="Ruleta" class="img-fluid ruleta-img">
 
         <!-- Estado del juego (texto dinámico) -->
-        <div class="estado-juego text-center my-3 p-3"> <!-- Texto que indica el estado -->
+        <div class="estado-juego text-center my-3 p-3">
           Recibiendo apuestas...
         </div>
 
         <!-- ---------------------- -->
         <!-- TABLA DE APUESTAS RECIENTES -->
         <!-- ---------------------- -->
-        <div class="container mt-2 mb-4 d-flex justify-content-center"> <!-- Contenedor centrado de tabla -->
-          <table class="table table-borderless text-center tabla-apuestas"> <!-- Tabla sin bordes -->
+        <div class="container mt-2 mb-4 d-flex justify-content-center">
+          <table class="table table-borderless text-center tabla-apuestas">
             <thead>
               <tr>
-                <th>Tipo</th> <!-- Columna tipo de apuesta -->
-                <th>Monto</th> <!-- Columna monto apostado -->
-                <th>Resultado</th> <!-- Columna resultado -->
-                <th>Variación</th> <!-- Columna cambio en saldo -->
+                <th>Tipo</th>
+                <th>Monto</th>
+                <th>Resultado</th>
+                <th>Variación</th>
               </tr>
             </thead>
             <tbody>
-              <!-- Filas de ejemplo -->
+              <!-- Filas de ejemplo, se pueden actualizar dinámicamente -->
               <tr><td>Rojo</td><td>$1000</td><td>Ganado</td><td class="ganado">+100</td></tr>
               <tr><td>Par</td><td>$50</td><td>Perdido</td><td class="perdido">-50</td></tr>
               <tr><td>1ra Docena</td><td>$200</td><td>Ganado</td><td class="ganado">+200</td></tr>
@@ -106,12 +105,12 @@
       <!-- ---------------------- -->
       <!-- COLUMNA DERECHA: MESA DE RULETA Y TABLA DE ÚLTIMOS NÚMEROS -->
       <!-- ---------------------- -->
-      <div class="col-md-6 d-flex flex-column align-items-center"> <!-- Columna derecha -->
+      <div class="col-md-6 d-flex flex-column align-items-center">
 
         <!-- ---------------------- -->
         <!-- TABLA HORIZONTAL DE LOS ÚLTIMOS 5 NÚMEROS -->
         <!-- ---------------------- -->
-        <div class="tabla-recientes-wrapper"> <!-- Wrapper para últimos números -->
+        <div class="tabla-recientes-wrapper">
           <table class="table table-borderless text-center custom-table">
             <thead>
               <tr>
@@ -125,7 +124,7 @@
             </thead>
             <tbody>
               <tr>
-                <!-- Círculos con colores según el resultado -->
+                <!-- Circulos con colores según el resultado -->
                 <td><div class="circle-red"><span class="circle-number">12</span></div></td>
                 <td><div class="circle-black"><span class="circle-number">7</span></div></td>
                 <td><div class="circle-red"><span class="circle-number">3</span></div></td>
@@ -139,8 +138,8 @@
         <!-- ---------------------- -->
         <!-- NÚMEROS DE LA MESA (0-36) -->
         <!-- ---------------------- -->
-        <div class="d-flex flex-wrap mesa justify-content-center"> <!-- Contenedor de celdas de números -->
-          <!-- Celdas de números de la ruleta (0-36) -->
+        <div class="d-flex flex-wrap mesa justify-content-center">
+          <!-- Celdas de números de la ruleta -->
           <div class="celda celda-0">0</div>
           <div class="celda celda-rojo">1</div>
           <div class="celda celda-negro">2</div>
@@ -183,7 +182,7 @@
         <!-- ---------------------- -->
         <!-- APUESTAS EXTERNAS -->
         <!-- ---------------------- -->
-        <div class="d-flex flex-wrap apuestas-externas justify-content-center mt-3"> <!-- Contenedor para apuestas externas -->
+        <div class="d-flex flex-wrap apuestas-externas justify-content-center mt-3">
           <div class="celda-externa docena1">1ra Docena</div>
           <div class="celda-externa docena2">2da Docena</div>
           <div class="celda-externa docena3">3ra Docena</div>
@@ -195,53 +194,61 @@
           <div class="celda-externa mitad2">19-36</div>
         </div>
 
-      </div> <!-- Cierra columna derecha -->
-    </div> <!-- Cierra fila principal -->
-  </div> <!-- Cierra container principal -->
-</div> <!-- Cierra juego-fondo -->
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ---------------------- -->
 <!-- FOOTER -->
 <!-- ---------------------- -->
 <!-- Scripts Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> <!-- JS de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
 
 <!-- Footer -->
-<div class="container-fluid"> <!-- Footer de ancho completo -->
-    <div class="row p-5 pb-2 bg-black text-white"> <!-- Fila con fondo negro y padding -->
-        <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna 1 -->
-            <p class="h3">Dirección</p> <!-- Título -->
-            <p class="text-secondary">Ejecito 441, Santiago.</p> <!-- Dirección -->
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna 2 -->
-            <p class="h5 mb-3">Recursos</p> <!-- Subtítulo -->
-            <div class="mb-2">
-                <a class="text-secondary text-decoration-none" href="#">Blog</a> <!-- Enlace -->
+    <div class="container-fluid">
+        <div class="row p-5 pb-2 bg-black text-white">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h3">Dirección</p>
+
+                <p class="text-secondary">Ejecito 441, Santiago.</p>
             </div>
-            <div class="mb-2">
-                <a class="text-secondary text-decoration-none" href="#">Preguntas Frecuentes</a> <!-- Enlace -->
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3">Recursos</p>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" href="#">Blog</a>
+
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" href="#">Preguntas Frecuentes</a>
+
+               
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3">Links</p>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" href="#">Terminos y condiciones</a>
+                </div>
+                
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3">Contactos</p>
+                
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" href="#">Instagram</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" href="#">Facebook</a>
+                </div>
+            </div>
+            <div class="col-xs-12 pt-4">
+                <p class="text-white text-center">© 2025 - Todos los derechos reservados</p>
+
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna 3 -->
-            <p class="h5 mb-3">Links</p> <!-- Subtítulo -->
-            <div class="mb-2">
-                <a class="text-secondary text-decoration-none" href="#">Terminos y condiciones</a> <!-- Enlace -->
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3"> <!-- Columna 4 -->
-            <p class="h5 mb-3">Contactos</p> <!-- Subtítulo -->
-            <div class="mb-2">
-                <a class="text-secondary text-decoration-none" href="#">Instagram</a> <!-- Enlace -->
-            </div>
-            <div class="mb-2">
-                <a class="text-secondary text-decoration-none" href="#">Facebook</a> <!-- Enlace -->
-            </div>
-        </div>
-        <div class="col-xs-12 pt-4"> <!-- Columna final ancho completo -->
-            <p class="text-white text-center">© 2025 - Todos los derechos reservados</p> <!-- Derechos de autor -->
-        </div>
-    </div> <!-- Cierra fila footer -->
-</div> <!-- Cierra container-fluid footer -->
+    </div>
 
 </body>
 </html>

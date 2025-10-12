@@ -9,20 +9,27 @@ body {
     padding: 0;
 }
 
-/* HEADER Y NAVEGACIÓN */
 /* ============================
    Estilo para barra de navegación
    ============================ */
 .barra-arriba {
-  background-color: #523c5c; /* morado */
+  background-color: #523c5c;
   padding: 0.5rem 0;
+  width: 100vw;           /* Ocupa todo el ancho de la ventana */
+  position: relative;  /* Centrado horizontal */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .barra-arriba .container {
+  max-width: 100vw;       /* El contenido también ocupa todo el ancho */
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .menu-opciones-barra {
@@ -49,7 +56,7 @@ body {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 0.125rem; /* 2px */
   bottom: 0;
   left: 0;
   background-color: #d1d5ff;
@@ -68,7 +75,7 @@ body {
     color: #ffffff;
     font-weight: bold;
     padding: 0.5rem 1.2rem;
-    border-radius: 8px;
+    border-radius: 0.5rem; /* 8px */
     border: none;
     transition: background-color 0.3s;
 }
