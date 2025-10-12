@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Union.css">
+</head>
+<body>
+<!-- Inicio Header -->
+<header class="barra-arriba">
+  <div class="container d-flex align-items-center">
+    <!-- Logo a la izquierda -->
+    <a class="navbar-brand me-4" href="/">
+      <img src="logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
+    </a>
+
+    <!-- Opciones centradas -->
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0">
+        <li><a href="../Basti/Inicio.html">Inicio</a></li>
+        <li><a href="../Fran/perfil.html">Perfil</a></li>
+        <li><a href="../Guli/reglas.html">Cómo jugar</a></li>
+        <li><a href="../Basti/infoAplicacion.html">Información</a></li>
+        <li><a href="../Fran/billetera.html">Billetera</a></li>
+
+      </ul>
+    </nav>
+
+    <!-- Botón Jugar a la derecha -->
+    <div class="ms-auto">
+      <a href="../Guli/ruleta.html" class="btn btn-jugar">JUGAR</a>
+    </div>
+  </div>
+</header>
+    <!-- Formulario de inicio de sesión -->
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-user-lock"></i>
+            <h2>Iniciar Sesión</h2>
+        </div>
+        <div class="login-form">
+            <form>
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu usuario" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                </div>
+                <div class="mb-3 form-check d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Recordarme</label>
+                    </div>
+                    <a href="Olvido.html" class="float-end">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn btn-login">Iniciar Sesión</button>
+                <div class="divider">
+                    <span>También puedes iniciar sesión con</span>
+                </div>
+                <div class="social-login">
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="login-links">
+                    ¿No tienes una cuenta? <a href="Registro.html">Regístrate aquí</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
