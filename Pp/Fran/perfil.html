@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Perfil</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="FranCSS.css">
@@ -41,42 +46,234 @@
   </div>
 </header>
     <div class="main-content-wrapper">
-        <div class="mitad">
-            <div class="profile-header-new">
-                <div class="user-info">
-                    <span class="user-icon-new">👤</span>
-                    <span class="user-name">Nombre de Usuario</span>
+        <!-- Título principal -->
+        <div class="page-title">
+            <h1>👤 Mi Perfil</h1>
+            <p>Administra tu información personal de forma segura</p>
+        </div>
+
+        <!-- Contenedor principal del perfil -->
+        <div class="profile-container">
+            <!-- Columna izquierda: Foto y estadísticas -->
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            <span class="avatar-icon">👤</span>
+                        </div>
+                        <div class="avatar-edit">
+                            <button class="btn-edit-avatar">📷</button>
+                        </div>
+                    </div>
+                    <h3 class="profile-name">Nombre de Usuario</h3>
+                    <p class="profile-subtitle">Jugador Premium</p>
+                    
+                    <!-- Estadísticas del jugador -->
+                    <div class="player-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">127</span>
+                            <span class="stat-label">Juegos</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">89%</span>
+                            <span class="stat-label">Victoria</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">$2.5M</span>
+                            <span class="stat-label">Ganado</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Nivel del jugador -->
+                    <div class="player-level">
+                        <div class="level-header">
+                            <span class="level-title">Nivel 8</span>
+                            <span class="level-xp">2,840 / 3,500 XP</span>
+                        </div>
+                        <div class="level-bar">
+                            <div class="level-progress" style="width: 81%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="profile-info-container-new">
-                <div class="info-row-new">
-                    <label for="username" class="info-label-new">Username (Rut):</label>
-                    <input type="text" id="username" class="info-input-new">
+            <!-- Columna derecha: Formulario de información -->
+            <div class="profile-main">
+                <div class="profile-form-card">
+                    <div class="form-header">
+                        <h2>📋 Información Personal</h2>
+                        <p>Mantén tu información actualizada para una mejor experiencia</p>
+                    </div>
+
+                    <div class="form-container">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="username" class="form-label">
+                                    <span class="label-icon">🆔</span>
+                                    Username (RUT)
+                                </label>
+                                <input type="text" id="username" class="form-input" placeholder="12.345.678-9">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre" class="form-label">
+                                    <span class="label-icon">👨‍💼</span>
+                                    Nombre
+                                </label>
+                                <input type="text" id="nombre" class="form-input" placeholder="Ingresa tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido" class="form-label">
+                                    <span class="label-icon">👥</span>
+                                    Apellido
+                                </label>
+                                <input type="text" id="apellido" class="form-input" placeholder="Ingresa tu apellido">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fecha" class="form-label">
+                                    <span class="label-icon">🎂</span>
+                                    Fecha de Nacimiento
+                                </label>
+                                <input type="date" id="fecha" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono" class="form-label">
+                                    <span class="label-icon">📱</span>
+                                    Teléfono
+                                </label>
+                                <input type="tel" id="telefono" class="form-input" placeholder="+56 9 1234 5678">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="correo" class="form-label">
+                                    <span class="label-icon">📧</span>
+                                    Correo Electrónico
+                                </label>
+                                <input type="email" id="correo" class="form-input" placeholder="correo@ejemplo.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contrasena" class="form-label">
+                                    <span class="label-icon">🔒</span>
+                                    Contraseña
+                                </label>
+                                <div class="password-input-container">
+                                    <input type="password" id="contrasena" class="form-input" placeholder="••••••••">
+                                    <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de acción -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="resetForm()">
+                                <span class="btn-icon">↺</span>
+                                Restablecer
+                            </button>
+                            <button type="submit" class="btn-primary" onclick="saveProfile()">
+                                <span class="btn-icon">💾</span>
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-row-new">
-                    <label for="nombre" class="info-label-new">Nombre:</label>
-                    <input type="text" id="nombre" class="info-input-new">
-                </div>
-                <div class="info-row-new">
-                    <label for="apellido" class="info-label-new">Apellido:</label>
-                    <input type="text" id="apellido" class="info-input-new">
-                </div>
-                <div class="info-row-new">
-                    <label for="fecha" class="info-label-new">Fecha de Nacimiento:</label>
-                    <input type="text" id="fecha" class="info-input-new">
-                </div>
-                <div class="info-row-new">
-                    <label for="correo" class="info-label-new">Correo electronico:</label>
-                    <input type="text" id="correo" class="info-input-new">
-                </div>
-                <div class="info-row-new last-row">
-                    <label for="contrasena" class="info-label-new">Contraseña:</label>
-                    <input type="password" id="contrasena" class="info-input-new">
+
+                <!-- Configuraciones adicionales -->
+                <div class="profile-settings-card">
+                    <div class="settings-header">
+                        <h3>⚙️ Configuraciones</h3>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-icon">🔔</span>
+                                <div class="setting-details">
+                                    <span class="setting-name">Notificaciones</span>
+                                    <span class="setting-desc">Recibir alertas del juego</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-icon">🎵</span>
+                                <div class="setting-details">
+                                    <span class="setting-name">Sonidos</span>
+                                    <span class="setting-desc">Efectos de sonido del casino</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-icon">🌙</span>
+                                <div class="setting-details">
+                                    <span class="setting-name">Modo Oscuro</span>
+                                    <span class="setting-desc">Interfaz con tema oscuro</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('contrasena');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+        
+        function resetForm() {
+            document.querySelectorAll('.form-input').forEach(input => input.value = '');
+        }
+        
+        function saveProfile() {
+            // Simular guardado
+            const btn = document.querySelector('.btn-primary');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="btn-icon">⏳</span>Guardando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="btn-icon">✅</span>¡Guardado!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
+            }, 1500);
+        }
+    </script>
 
     <div class="container-fluid"> <!-- Footer contenedor full width -->
         <div class="row p-5 pb-2 bg-black text-white"> <!-- Fila con padding, fondo negro, texto blanco -->

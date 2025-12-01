@@ -5,12 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ruleta</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CDN para estilos rápidos y responsivos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="GuliCSS.css">
+  <link rel="stylesheet" href="ruleta-funcional.css">
 </head>
 <body>
 
@@ -40,41 +44,68 @@
 <!-- ---------------------- -->
 <!-- TITULO PRINCIPAL -->
 <!-- ---------------------- -->
-<h1 class="text-center">RULETA</h1>
-
-<!-- ---------------------- -->
-<!-- ALERTA DE JUEGO -->
-<!-- ---------------------- -->
-<div class="alert" role="alert">
-  La ruleta ha marcado la casilla "X" como ganadora, se han actualizado sus apuestas!
+<div class="hero-title-container">
+  <div class="hero-title-wrapper">
+    <h1 class="hero-title">
+      <span class="title-icon">🎰</span>
+      <span class="title-main">RULETA</span>
+      <span class="title-subtitle">CASINO</span>
+      <span class="title-icon">🎰</span>
+    </h1>
+    <div class="hero-subtitle">
+      <span class="subtitle-text">¡Haz tu apuesta y gana en grande!</span>
+      <div class="subtitle-sparkles">✨ SUERTE ✨</div>
+    </div>  </div>
 </div>
 
 <!-- ---------------------- -->
 <!-- FONDO DEL JUEGO -->
 <!-- ---------------------- -->
 <div class="juego-fondo">
-  <div class="container mt-4">
-    <div class="row">
-
-      <!-- ---------------------- -->
-      <!-- SALDO DISPONIBLE -->
+  <div class="container mt-4">    <div class="row">
+        <!-- ---------------------- -->
+      <!-- SALDO DISPONIBLE MEJORADO -->
       <!-- ---------------------- -->
       <div class="container text-center my-4">
-        <div class="saldo-disponible">
-          Saldo disponible: <span>$19485948 CLP</span>
+        <div class="saldo-card-container">
+          <div class="saldo-card">
+            <div class="saldo-header">
+              <div class="saldo-icon-new">💳</div>
+              <div class="saldo-info">
+                <div class="saldo-label">Tu Balance</div>
+                <div class="saldo-subtitle">Disponible para jugar</div>
+              </div>
+            </div>
+            <div class="saldo-amount-container">
+              <div class="saldo-amount-new">$19,485,948</div>
+              <div class="saldo-currency">CLP</div>
+            </div>
+            <div class="saldo-footer">
+              <div class="saldo-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Cuenta Activa</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <!-- ---------------------- -->
+      </div>      <!-- ---------------------- -->
       <!-- COLUMNA IZQUIERDA: RULETA Y ESTADO -->
-      <!-- ---------------------- -->
-      <div class="col-md-6 d-flex flex-column align-items-center">
-        <!-- Imagen de la ruleta principal -->
-        <img src="Imagenes_Guli/ruleta.png" alt="Ruleta" class="img-fluid ruleta-img">
+      <!-- ---------------------- -->      <div class="col-md-6 d-flex flex-column align-items-center">
+        <!-- Contenedor de la ruleta con indicador -->
+        <div class="ruleta-container">
+          <div class="triangulo-indicador"></div>
+          <img src="Imagenes_Guli/ruleta.png" alt="Ruleta" class="img-fluid ruleta-img">
+        </div>        <!-- Botón de girar ruleta -->
+        <div class="text-center my-3">
+          <button id="spin-button" class="btn btn-danger btn-lg px-4 py-2">
+            🎰 GIRAR RULETA
+          </button>        </div>
 
         <!-- Estado del juego (texto dinámico) -->
         <div class="estado-juego text-center my-3 p-3">
-          Recibiendo apuestas...
+          <div class="status-indicator"></div>
+          <span class="status-text">Recibiendo apuestas...</span>
+          <div class="countdown-timer">00:45</div>
         </div>
 
         <!-- ---------------------- -->
@@ -109,8 +140,10 @@
 
         <!-- ---------------------- -->
         <!-- TABLA HORIZONTAL DE LOS ÚLTIMOS 5 NÚMEROS -->
-        <!-- ---------------------- -->
-        <div class="tabla-recientes-wrapper">
+        <!-- ---------------------- -->        <div class="tabla-recientes-wrapper">
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <h6 class="text-white mb-0">🎲 Números Recientes</h6>
+          </div>
           <table class="table table-borderless text-center custom-table">
             <thead>
               <tr>
@@ -125,21 +158,18 @@
             <tbody>
               <tr>
                 <!-- Circulos con colores según el resultado -->
-                <td><div class="circle-red"><span class="circle-number">12</span></div></td>
-                <td><div class="circle-black"><span class="circle-number">7</span></div></td>
-                <td><div class="circle-red"><span class="circle-number">3</span></div></td>
-                <td><div class="circle-green"><span class="circle-number">0</span></div></td>
-                <td><div class="circle-black"><span class="circle-number">20</span></div></td>
+                <td><div class="circle-empty"><span class="circle-number">-</span></div></td>
+                <td><div class="circle-empty"><span class="circle-number">-</span></div></td>
+                <td><div class="circle-empty"><span class="circle-number">-</span></div></td>
+                <td><div class="circle-empty"><span class="circle-number">-</span></div></td>
+                <td><div class="circle-empty"><span class="circle-number">-</span></div></td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- ---------------------- -->
+            </tbody>          </table>
+        </div>        <!-- ---------------------- -->
         <!-- NÚMEROS DE LA MESA (0-36) -->
         <!-- ---------------------- -->
         <div class="d-flex flex-wrap mesa justify-content-center">
-          <!-- Celdas de números de la ruleta -->
+          <!-- Celdas de números de la ruleta con colores correctos -->
           <div class="celda celda-0">0</div>
           <div class="celda celda-rojo">1</div>
           <div class="celda celda-negro">2</div>
@@ -151,14 +181,14 @@
           <div class="celda celda-negro">8</div>
           <div class="celda celda-rojo">9</div>
           <div class="celda celda-negro">10</div>
-          <div class="celda celda-rojo">11</div>
-          <div class="celda celda-negro">12</div>
-          <div class="celda celda-rojo">13</div>
-          <div class="celda celda-negro">14</div>
-          <div class="celda celda-rojo">15</div>
-          <div class="celda celda-negro">16</div>
-          <div class="celda celda-rojo">17</div>
-          <div class="celda celda-negro">18</div>
+          <div class="celda celda-negro">11</div>
+          <div class="celda celda-rojo">12</div>
+          <div class="celda celda-negro">13</div>
+          <div class="celda celda-rojo">14</div>
+          <div class="celda celda-negro">15</div>
+          <div class="celda celda-rojo">16</div>
+          <div class="celda celda-negro">17</div>
+          <div class="celda celda-rojo">18</div>
           <div class="celda celda-rojo">19</div>
           <div class="celda celda-negro">20</div>
           <div class="celda celda-rojo">21</div>
@@ -169,29 +199,58 @@
           <div class="celda celda-negro">26</div>
           <div class="celda celda-rojo">27</div>
           <div class="celda celda-negro">28</div>
-          <div class="celda celda-rojo">29</div>
-          <div class="celda celda-negro">30</div>
-          <div class="celda celda-rojo">31</div>
-          <div class="celda celda-negro">32</div>
-          <div class="celda celda-rojo">33</div>
-          <div class="celda celda-negro">34</div>
-          <div class="celda celda-rojo">35</div>
-          <div class="celda celda-negro">36</div>
-        </div>
-
+          <div class="celda celda-negro">29</div>
+          <div class="celda celda-rojo">30</div>
+          <div class="celda celda-negro">31</div>
+          <div class="celda celda-rojo">32</div>
+          <div class="celda celda-negro">33</div>
+          <div class="celda celda-rojo">34</div>
+          <div class="celda celda-negro">35</div>
+          <div class="celda celda-rojo">36</div>        </div>
+        
         <!-- ---------------------- -->
         <!-- APUESTAS EXTERNAS -->
         <!-- ---------------------- -->
-        <div class="d-flex flex-wrap apuestas-externas justify-content-center mt-3">
-          <div class="celda-externa docena1">1ra Docena</div>
-          <div class="celda-externa docena2">2da Docena</div>
-          <div class="celda-externa docena3">3ra Docena</div>
-          <div class="celda-externa mitad1">1-18</div>
-          <div class="celda-externa par">Par</div>
-          <div class="celda-externa rojo">Rojo</div>
-          <div class="celda-externa negro">Negro</div>
-          <div class="celda-externa impar">Impar</div>
-          <div class="celda-externa mitad2">19-36</div>
+        <div class="apuestas-externas-wrapper mt-4">
+          <h5 class="text-center mb-3 text-white">Apuestas Externas</h5>
+          <div class="d-flex flex-wrap apuestas-externas justify-content-center">
+            <div class="celda-externa docena1" data-payout="2:1">
+              <span class="bet-label">1ra Docena</span>
+              <span class="bet-numbers">(1-12)</span>
+            </div>
+            <div class="celda-externa docena2" data-payout="2:1">
+              <span class="bet-label">2da Docena</span>
+              <span class="bet-numbers">(13-24)</span>
+            </div>
+            <div class="celda-externa docena3" data-payout="2:1">
+              <span class="bet-label">3ra Docena</span>
+              <span class="bet-numbers">(25-36)</span>
+            </div>
+            <div class="celda-externa mitad1" data-payout="1:1">
+              <span class="bet-label">1-18</span>
+              <span class="bet-numbers">Bajo</span>
+            </div>
+            <div class="celda-externa par" data-payout="1:1">
+              <span class="bet-label">Par</span>
+              <span class="bet-numbers">Even</span>
+            </div>
+            <div class="celda-externa rojo" data-payout="1:1">
+              <span class="bet-label">🔴</span>
+              <span class="bet-numbers">Rojo</span>
+            </div>
+            <div class="celda-externa negro" data-payout="1:1">
+              <span class="bet-label">⚫</span>
+              <span class="bet-numbers">Negro</span>
+            </div>
+            <div class="celda-externa impar" data-payout="1:1">
+              <span class="bet-label">Impar</span>
+              <span class="bet-numbers">Odd</span>
+            </div>
+            <div class="celda-externa mitad2" data-payout="1:1">
+              <span class="bet-label">19-36</span>
+              <span class="bet-numbers">Alto</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -204,6 +263,9 @@
 <!-- ---------------------- -->
 <!-- Scripts Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<!-- Script de Ruleta Profesional -->
+<script src="ruleta_professional.js"></script>
 
 
 <!-- Footer -->

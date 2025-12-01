@@ -5,6 +5,12 @@
     <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ajuste de escala para dispositivos móviles -->
     <title>Billetera Virtual</title> <!-- Título de la página que aparece en la pestaña -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> <!-- CSS de Bootstrap externo -->
     <link rel="stylesheet" href="FranCSS.css"> <!-- CSS personalizado -->
@@ -53,128 +59,284 @@
 </video>
 --> <!-- Video comentado, no se muestra -->
 
-    <!-- Contenido principal de la página -->
-    <div class="contenedor" "> <!-- Contenedor principal -->
-        <div class="mitad"> <!-- Mitad izquierda -->
-            <div class="profile-header"> <!-- Encabezado del perfil -->
-                <img src="Imagenes_Fran/usuario.png" alt="Usuario" class="profile-icon"> <!-- Icono del usuario -->
-                <p class="profile-name">Name</p> <!-- Nombre del usuario -->
-            </div>
+    <div class="main-content-wrapper">
+        <!-- Título principal -->
+        <div class="page-title">
+            <h1>💰 Mi Billetera</h1>
+            <p>Administra tu dinero de forma simple</p>
+        </div>
 
-            <div class="profile-balance"> <!-- Balance del usuario -->
-                <img src="money.webp" alt="Dinero" class="money-icon"> <!-- Icono de dinero -->
-                <div>
-                    <p>Monto actual:</p> <!-- Texto descriptivo -->
-                    <p class="balance">$10.000</p> <!-- Monto actual -->
+        <!-- Contenedor principal simplificado -->
+        <div class="simple-wallet-container">
+            
+            <!-- Saldo principal -->
+            <div class="balance-section">
+                <div class="balance-card">
+                    <div class="balance-icon">💎</div>
+                    <div class="balance-info">
+                        <h2>Tu Saldo</h2>
+                        <div class="balance-amount" id="current-balance">$19,485,948</div>
+                        <p class="balance-subtitle">Disponible para jugar</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="mitad-opciones"> <!-- Mitad derecha -->
-            <img src="Imagenes_Fran/images.jpg" class="image-placeholder" alt="Imagen"> <!-- Imagen de placeholder -->
-            <div class="options-bar"> <!-- Barra de opciones -->
-                <a href="#modal-cargar" class="option"> <!-- Enlace que abre modal de cargar dinero -->
-                    Cargar dinero:
-                    <div class="circle orange"></div> <!-- Indicador visual color naranja -->
-                </a>
+            <!-- Botones principales -->
+            <div class="main-actions">
+                <button class="action-button add-money" onclick="showAddMoney()">
+                    <div class="btn-icon">➕</div>
+                    <div class="btn-text">
+                        <h3>Agregar Dinero</h3>
+                        <p>Depositar fondos a tu cuenta</p>
+                    </div>
+                </button>
 
-                <div class="divider" style="background-color: black;"></div> <!-- Divisor negro -->
-
-                <a href="#modal-retirar" class="option"> <!-- Enlace que abre modal de retirar dinero -->
-                    Retirar dinero:
-                    <div class="circle blue"></div> <!-- Indicador visual color azul -->
-                </a>
+                <button class="action-button withdraw-money" onclick="showWithdrawMoney()">
+                    <div class="btn-icon">➖</div>
+                    <div class="btn-text">
+                        <h3>Retirar Dinero</h3>
+                        <p>Sacar dinero de tu cuenta</p>
+                    </div>
+                </button>
             </div>
-        </div>
-    </div> <!-- Fin del contenedor principal -->
 
-    <!-- Modal Cargar -->
-    <div id="modal-cargar" class="modal"> <!-- Modal para cargar dinero -->
-        <div class="modal-content"> <!-- Contenido del modal -->
-            <h2>Cargar dinero</h2> <!-- Título -->
-            <form> <!-- Formulario -->
-                <label>Monto a cargar:</label> <!-- Etiqueta monto -->
-                <input type="number" placeholder="$0"><br> <!-- Input para monto -->
-                <label>Método de pago:</label> <!-- Etiqueta método de pago -->
-                <select> <!-- Selección de método -->
-                    <option>Tarjeta</option> <!-- Opción tarjeta -->
-                    <option>Transferencia</option> <!-- Opción transferencia -->
-                </select><br>
-                <button type="submit">Confirmar</button> <!-- Botón enviar -->
-                <a href="#" class="close">Cerrar</a> <!-- Cerrar modal -->
-            </form>
+            <!-- Formulario para agregar dinero -->
+            <div class="form-section" id="add-money-form" style="display: none;">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>💰 Agregar Dinero</h3>
+                        <button class="close-btn" onclick="hideAllForms()">✕</button>
+                    </div>
+                    <div class="form-body">
+                        <div class="input-group">
+                            <label>Cantidad a agregar:</label>
+                            <input type="number" id="add-amount" placeholder="Ej: 50000" min="1000">
+                            <div class="quick-amounts">
+                                <button onclick="setAmount('add', 10000)">$10,000</button>
+                                <button onclick="setAmount('add', 50000)">$50,000</button>
+                                <button onclick="setAmount('add', 100000)">$100,000</button>
+                                <button onclick="setAmount('add', 500000)">$500,000</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Método de pago:</label>
+                            <select id="payment-method">
+                                <option value="tarjeta">💳 Tarjeta de Crédito/Débito</option>
+                                <option value="banco">🏦 Transferencia Bancaria</option>
+                                <option value="efectivo">💵 Depósito en Efectivo</option>
+                            </select>
+                        </div>
+                        <button class="confirm-btn add-btn" onclick="addMoney()">
+                            <span class="btn-icon">✅</span>
+                            Confirmar Depósito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario para retirar dinero -->
+            <div class="form-section" id="withdraw-money-form" style="display: none;">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>🏦 Retirar Dinero</h3>
+                        <button class="close-btn" onclick="hideAllForms()">✕</button>
+                    </div>
+                    <div class="form-body">
+                        <div class="input-group">
+                            <label>Cantidad a retirar:</label>
+                            <input type="number" id="withdraw-amount" placeholder="Ej: 25000" min="1000">
+                            <div class="available-balance">
+                                Saldo disponible: <span id="available-balance">$19,485,948</span>
+                            </div>
+                            <div class="quick-amounts">
+                                <button onclick="setAmount('withdraw', 10000)">$10,000</button>
+                                <button onclick="setAmount('withdraw', 25000)">$25,000</button>
+                                <button onclick="setAmount('withdraw', 50000)">$50,000</button>
+                                <button onclick="setAmount('withdraw', 100000)">$100,000</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Método de retiro:</label>
+                            <select id="withdraw-method">
+                                <option value="banco">🏦 Transferencia a mi Banco</option>
+                                <option value="tarjeta">💳 Devolución a Tarjeta</option>
+                                <option value="efectivo">💵 Retiro en Efectivo</option>
+                            </select>
+                        </div>
+                        <button class="confirm-btn withdraw-btn" onclick="withdrawMoney()">
+                            <span class="btn-icon">✅</span>
+                            Confirmar Retiro
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial simplificado -->
+            <div class="history-section">
+                <h3>📊 Últimos Movimientos</h3>
+                <div class="transaction-list" id="transaction-list">
+                    <div class="transaction-item gain">
+                        <div class="transaction-icon">⬆️</div>
+                        <div class="transaction-details">
+                            <span class="transaction-type">Depósito</span>
+                            <span class="transaction-date">Hoy - 14:30</span>
+                        </div>
+                        <span class="transaction-amount positive">+$50,000</span>
+                    </div>
+                    <div class="transaction-item loss">
+                        <div class="transaction-icon">⬇️</div>
+                        <div class="transaction-details">
+                            <span class="transaction-type">Retiro</span>
+                            <span class="transaction-date">Ayer - 16:45</span>
+                        </div>
+                        <span class="transaction-amount negative">-$25,000</span>
+                    </div>
+                    <div class="transaction-item gain">
+                        <div class="transaction-icon">🎰</div>
+                        <div class="transaction-details">
+                            <span class="transaction-type">Ganancia Ruleta</span>
+                            <span class="transaction-date">29/11 - 20:15</span>
+                        </div>
+                        <span class="transaction-amount positive">+$75,000</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- Modal Retirar -->
-    <div id="modal-retirar" class="modal"> <!-- Modal para retirar dinero -->
-        <div class="modal-content"> <!-- Contenido del modal -->
-            <h2>Retirar dinero</h2> <!-- Título -->
-            <form> <!-- Formulario -->
-                <label>Monto a retirar:</label> <!-- Etiqueta monto -->
-                <input type="number" placeholder="$0"><br> <!-- Input -->
-                <label>Método de retiro:</label> <!-- Etiqueta método -->
-                <select> <!-- Selección -->
-                    <option>Cuenta bancaria</option> <!-- Opción cuenta -->
-                    <option>Efectivo</option> <!-- Opción efectivo -->
-                </select><br>
-                <button type="submit">Confirmar</button> <!-- Botón enviar -->
-                <a href="#" class="close">Cerrar</a> <!-- Cerrar modal -->
-            </form>
+    <!-- Sistema de notificaciones -->
+    <div id="notification" class="notification" style="display: none;">
+        <div class="notification-content">
+            <span class="notification-message" id="notification-message"></span>
+            <button class="notification-close" onclick="hideNotification()">✕</button>
         </div>
     </div>
 
-    <!-- historial -->
+    <script>
+        let currentBalance = 19485948;
 
-    <div class="historial"> <!-- Historial de transacciones -->
-        <h2 >Historial de transacciones:</h2> <!-- Título -->
+        function updateBalance() {
+            document.getElementById('current-balance').textContent = '$' + currentBalance.toLocaleString();
+            document.getElementById('available-balance').textContent = '$' + currentBalance.toLocaleString();
+        }
 
-        <div class="transaccion ganancias"> <!-- Transacción ganancia -->
-            <span class="arrow-up"></span> <!-- Flecha hacia arriba -->
-            <div class="info"> <!-- Información de la transacción -->
-                <span class="nombre">Juego X</span> <!-- Nombre -->
-                <span class="fecha">fecha</span> <!-- Fecha -->
-            </div>
-            <span class="monto">$100.000</span> <!-- Monto -->
-        </div>
+        function showAddMoney() {
+            hideAllForms();
+            document.getElementById('add-money-form').style.display = 'block';
+            document.getElementById('add-amount').focus();
+        }
 
-        <div class="transaccion perdidas"> <!-- Transacción pérdida -->
-            <span class="arrow-down"></span> <!-- Flecha abajo -->
-            <div class="info">
-                <span class="nombre">Juego X</span>
-                <span class="fecha">fecha</span>
-            </div>
-            <span class="monto">$10.000</span>
-        </div>
+        function showWithdrawMoney() {
+            hideAllForms();
+            document.getElementById('withdraw-money-form').style.display = 'block';
+            document.getElementById('withdraw-amount').focus();
+        }
 
-        <div class="transaccion ganancias">
-            <span class="arrow-up"></span>
-            <div class="info">
-                <span class="nombre">Juego X</span>
-                <span class="fecha">fecha</span>
-            </div>
-            <span class="monto">$80.000</span>
-        </div>
+        function hideAllForms() {
+            document.getElementById('add-money-form').style.display = 'none';
+            document.getElementById('withdraw-money-form').style.display = 'none';
+        }
 
-        <div class="transaccion perdidas">
-            <span class="arrow-down"></span>
-            <div class="info">
-                <span class="nombre">Juego X</span>
-                <span class="fecha">fecha</span>
-            </div>
-            <span class="monto">$20.000</span>
-        </div>
+        function setAmount(type, amount) {
+            if (type === 'add') {
+                document.getElementById('add-amount').value = amount;
+            } else if (type === 'withdraw') {
+                document.getElementById('withdraw-amount').value = amount;
+            }
+        }
 
-        <div class="transaccion perdidas">
-            <span class="arrow-down"></span>
-            <div class="info">
-                <span class="nombre">Juego X</span>
-                <span class="fecha">fecha</span>
-            </div>
-            <span class="monto">$190.000</span>
-        </div>
+        function addMoney() {
+            const amount = parseInt(document.getElementById('add-amount').value);
+            const paymentMethod = document.getElementById('payment-method').value;
+            
+            if (!amount || amount < 1000) {
+                showNotification('El monto mínimo es $1,000', 'error');
+                return;
+            }
 
-    </div> <!-- Fin historial -->
+            // Simular proceso de depósito
+            currentBalance += amount;
+            updateBalance();
+            addTransaction('Depósito', amount, 'positive', '⬆️');
+            hideAllForms();
+            
+            const methodName = paymentMethod === 'tarjeta' ? 'Tarjeta' : 
+                             paymentMethod === 'banco' ? 'Transferencia' : 'Efectivo';
+            
+            showNotification(`¡Depósito exitoso! +$${amount.toLocaleString()} vía ${methodName}`, 'success');
+        }
+
+        function withdrawMoney() {
+            const amount = parseInt(document.getElementById('withdraw-amount').value);
+            const withdrawMethod = document.getElementById('withdraw-method').value;
+            
+            if (!amount || amount < 1000) {
+                showNotification('El monto mínimo es $1,000', 'error');
+                return;
+            }
+
+            if (amount > currentBalance) {
+                showNotification('Saldo insuficiente', 'error');
+                return;
+            }
+
+            // Simular proceso de retiro
+            currentBalance -= amount;
+            updateBalance();
+            addTransaction('Retiro', amount, 'negative', '⬇️');
+            hideAllForms();
+            
+            const methodName = withdrawMethod === 'banco' ? 'Transferencia' : 
+                             withdrawMethod === 'tarjeta' ? 'Tarjeta' : 'Efectivo';
+            
+            showNotification(`¡Retiro exitoso! -$${amount.toLocaleString()} vía ${methodName}`, 'success');
+        }
+
+        function addTransaction(type, amount, className, icon) {
+            const transactionList = document.getElementById('transaction-list');
+            const now = new Date();
+            const timeString = `Hoy - ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+            
+            const transaction = document.createElement('div');
+            transaction.className = `transaction-item ${className === 'positive' ? 'gain' : 'loss'}`;
+            transaction.innerHTML = `
+                <div class="transaction-icon">${icon}</div>
+                <div class="transaction-details">
+                    <span class="transaction-type">${type}</span>
+                    <span class="transaction-date">${timeString}</span>
+                </div>
+                <span class="transaction-amount ${className}">${className === 'positive' ? '+' : '-'}$${amount.toLocaleString()}</span>
+            `;
+            
+            transactionList.insertBefore(transaction, transactionList.firstChild);
+            
+            // Mantener solo los últimos 10 movimientos
+            while (transactionList.children.length > 10) {
+                transactionList.removeChild(transactionList.lastChild);
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const messageEl = document.getElementById('notification-message');
+            
+            messageEl.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                hideNotification();
+            }, 4000);
+        }
+
+        function hideNotification() {
+            document.getElementById('notification').style.display = 'none';
+        }
+
+        // Actualizar saldo al cargar
+        updateBalance();
+    </script>
 
 
 

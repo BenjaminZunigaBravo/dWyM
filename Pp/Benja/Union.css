@@ -78,7 +78,11 @@
    Estilos generales y fondo
    ============================ */
 body {
-    background-color: rgb(68, 43, 99);
+    background: linear-gradient(rgba(68, 43, 99, 0.7), rgba(68, 43, 99, 0.7)), url('../Fran/Imagenes_Fran/Tapiz.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

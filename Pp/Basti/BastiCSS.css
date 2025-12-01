@@ -1,24 +1,32 @@
 /* ============================
-   Fondo general de la página
+   Fondo general de la página MEJORADO
    ============================ */
 body {
-    background-color: #57035f !important; /* morado oscuro */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #57035f 100%) !important;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 /* ============================
-   Barra de navegación completa
+   Barra de navegación completa MEJORADA
    ============================ */
 .barra-arriba {
-    background-color: #523c5c;
-    padding: 0.5rem 0;
-    width: 100vw;           /* Ocupa todo el ancho de la ventana */
-    position: relative;  /* Centrado horizontal */
+    background: linear-gradient(135deg, #523c5c, #667eea);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    width: 100vw;
+    position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
 }
 
 .barra-arriba .container {
@@ -68,18 +76,23 @@ body {
 /* ============================
    Botón JUGAR en la barra
    ============================ */
-.barra-arriba .btn-jugar {
-    background-color: #4e1a60;
-    color: #ffffff;
+.btn-jugar {
+    background: linear-gradient(135deg, #4e1a60, #6e55f3) !important;
+    color: #ffffff !important;
     font-weight: bold;
     padding: 0.5rem 1.2rem;
-    border-radius: 0.5rem;
-    border: none;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78,26,96,0.3);
+    text-decoration: none;
 }
 
-.barra-arriba .btn-jugar:hover {
-    background-color: #6e55f3;
+.btn-jugar:hover {
+    background: linear-gradient(135deg, #6e55f3, #4e1a60) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78,26,96,0.4);
 }
 
 /* ============================
@@ -91,40 +104,60 @@ body {
 }
 
 .botones-barra {
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     color: #ffffff;
-    background-color: #57035f;
-    border: 1px solid #57035f;
-    transition: background-color 0.3s, color 0.3s;
+    background: linear-gradient(135deg, #57035f, #764ba2);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(87,3,95,0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 .botones-barra:hover {
-    background-color: #d1d5ff;
-    color: #4f46e5;
+    background: linear-gradient(135deg, #764ba2, #57035f);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(87,3,95,0.4);
 }
 
 /* ============================
-   Tarjetas de desarrolladores
+   Tarjetas de desarrolladores MEJORADAS
    ============================ */
 .tarjeta-personalizada {
-    min-height: 180px;
+    min-height: 200px;
     width: 100%;
-    background-color: #4e1a60;
-    border-radius: 16px;
-    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    padding: 2rem 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.tarjeta-personalizada::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.05) 50%, transparent 51%);
+    pointer-events: none;
 }
 
 .tarjeta-personalizada:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .card-img-lateral {
@@ -150,26 +183,42 @@ body {
 }
 
 /* ============================
-   Contenedores de secciones principales
+   Contenedores de secciones principales MEJORADOS
    ============================ */
 .secciones-pagina {
-  background-color: #3a0d3c;
+  background: linear-gradient(135deg, rgba(58,13,60,0.95), rgba(74,44,92,0.95));
+  backdrop-filter: blur(10px);
   color: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 3rem;
   margin: 2rem auto;
   max-width: 1200px;
   min-height: 450px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border: 2px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.secciones-pagina::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .secciones-pagina:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  transform: translateY(-6px);
 }
 
 .secciones-pagina .hero_titulo {
@@ -357,6 +406,9 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fondo-imagen {
@@ -365,7 +417,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagen_ruleta.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Imagenes_Basti/imagen_ruleta.jpg');
     background-size: cover;
     background-position: center;
     filter: blur(4px);
@@ -373,50 +425,95 @@ body {
 }
 
 /* ============================
-   Boton "Jugar" (Inicio)
+   Boton "Jugar" MEJORADO (Inicio)
    ============================ */
 #boton-jugar {
-    padding: 2.5rem 5rem;
-    font-size: 3rem;
-    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem 4rem;
+    font-size: 2.5rem;
+    font-weight: 800;
     border: none;
-    border-radius: 16px;
+    border-radius: 50px;
     color: #ffffff;
-    background-color: #57035f;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+#boton-jugar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+#boton-jugar:hover::before {
+    left: 100%;
 }
 
 #boton-jugar:hover {
-    background-color: #6c5ce7;
-    transform: scale(1.08);
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.3);
+}
+
+#boton-jugar:active {
+    transform: scale(0.98) translateY(-2px);
 }
 
 .contenido-central {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     text-align: center;
     z-index: 2;
     color: #fff;
+    width: 90%;
+    max-width: 1000px;
+    /* Removido animation para evitar problemas de posicionamiento */
 }
 
 #texto-arriba {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 
+        0 0 20px rgba(255,215,0,0.8),
+        0 4px 8px rgba(0,0,0,0.8),
+        2px 2px 4px rgba(0,0,0,0.9);
+    letter-spacing: 2px;
+    /* Removido background-clip para evitar problemas de renderizado */
+    /* Aplicado un efecto dorado con text-shadow en su lugar */
+    font-display: swap;
 }
 
 #subtexto-arriba {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-    font-weight: 400;
-    color: #e0e0e0;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    line-height: 1.4;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-display: swap;
 }
+
+/* Animación titleGlow removida para evitar problemas de posicionamiento */
 
 /* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
 .container-fluid .row.p-5 {
@@ -445,4 +542,78 @@ section h2 {
     font-weight: 900;
     text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
     letter-spacing: 2px;
+}
+
+/* ============================
+   EFECTOS MODERNOS Y ANIMACIONES
+   ============================ */
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Botones mejorados */
+.btn, button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .tarjeta-personalizada {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 1.5rem;
+    }
+    
+    .card-img-lateral {
+        margin: 0 0 1rem 0;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .secciones-pagina {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
 }
