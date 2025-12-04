@@ -1,0 +1,1144 @@
+/* ---------------------- */
+/* RESET Y TIPOGRAFÍA */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #57035f 100%);
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ---------------------- */
+/* HEADER Y NAVEGACIÓN MEJORADO */
+.site-header {
+    background: linear-gradient(135deg, #523c5c, #667eea);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.barra-arriba {
+  background: linear-gradient(135deg, #523c5c, #667eea);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.barra-arriba .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu, .menu-opciones-barra {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu li, .menu-opciones-barra li {
+  margin: 0 1rem;
+}
+
+.menu a, .menu-opciones-barra a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover, .menu-opciones-barra a:hover {
+  color: #4400ff;
+}
+
+.menu-opciones-barra a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1d5ff;
+  transition: width 0.3s;
+}
+
+.menu-opciones-barra a:hover::after {
+  width: 100%;
+}
+
+/* ============================
+   Botón JUGAR en la barra
+   ============================ */
+.btn-jugar {
+    background: linear-gradient(135deg, #4e1a60, #6e55f3) !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78,26,96,0.3);
+    text-decoration: none;
+}
+
+.btn-jugar:hover {
+    background: linear-gradient(135deg, #6e55f3, #4e1a60) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78,26,96,0.4);
+}
+
+/* ---------------------- */
+/* TITULO RULETA MEJORADO */
+h1.text-center {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5em;
+    background: linear-gradient(45deg, #ffd700, #ffed4a, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.5)); }
+    100% { filter: drop-shadow(0 0 20px rgba(255,215,0,0.8)); }
+}
+
+/* ---------------------- */
+/* ALERTA DE JUEGO MEJORADA */
+.alert {
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    animation: slideDown 0.6s ease-out;
+}
+
+.alert-icon {
+    font-size: 1.5em;
+    animation: pulse 2s infinite;
+}
+
+.winning-number {
+    background: linear-gradient(45deg, #ffd700, #ffed4a);
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ---------------------- */
+/* SALDO DISPONIBLE PROFESIONAL */
+.saldo-card-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.saldo-card {
+    background: linear-gradient(135deg, rgba(58,13,60,0.95), rgba(74,44,92,0.95));
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 3px solid #d4af37;
+    box-shadow: 
+        0 25px 70px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(212,175,55,0.1);
+    min-width: 400px;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.saldo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(212,175,55,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.saldo-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.saldo-icon-new {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #d4af37, #fff700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+.saldo-info {
+    flex: 1;
+    text-align: left;
+}
+
+.saldo-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.saldo-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+}
+
+.saldo-amount-container {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.saldo-amount-new {
+    font-size: 3.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #d4af37, #fff700, #d4af37);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldShimmer 3s ease-in-out infinite;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.saldo-currency {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.saldo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.saldo-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00e600;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0,230,0,0.6);
+}
+
+/* Animaciones para el saldo profesional */
+@keyframes cardFloat {
+    0%, 100% { 
+        transform: translateY(0px);
+        box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+    }
+    50% { 
+        transform: translateY(-5px);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% { 
+        transform: scale(1);
+    }
+    50% { 
+        transform: scale(1.1);
+    }
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes statusPulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+/* ---------------------- */
+/* ESTADO DEL JUEGO MEJORADO */
+.estado-juego {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    border-radius: 15px;
+    font-weight: bold;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 20px 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.status-text {
+    font-size: 1.1em;
+    margin: 0 15px;
+}
+
+.countdown-timer {
+    background: rgba(255,255,255,0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #ffd700;
+    margin-top: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ---------------------- */
+/* TABLA DE APUESTAS OSCURA MEJORADA */
+.tabla-apuestas {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid rgba(74,46,94,0.8);
+    background: linear-gradient(135deg, rgba(51,0,61,0.95), rgba(74,44,92,0.95));
+    backdrop-filter: blur(10px);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.tabla-apuestas th, .tabla-apuestas td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(74,46,94,0.5);
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tabla-apuestas th {
+    background: linear-gradient(135deg, #4a2e5e, #667eea);
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ganado { 
+    color: #00ff88; 
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,255,136,0.5);
+}
+
+.perdido { 
+    color: #ff5555; 
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255,85,85,0.5);
+}
+
+.tabla-apuestas tbody tr {
+    transition: all 0.3s ease;
+}
+
+.tabla-apuestas tbody tr:hover {
+    background-color: rgba(255,255,255,0.08);
+    transform: scale(1.02);
+}
+
+/* ---------------------- */
+/* TABLA DE ÚLTIMOS 5 NÚMEROS - ESTILIZADO BONITO */
+.tabla-recientes-wrapper {
+    width: 100%;
+    max-width: 100%;
+    color: white;
+    background-color: #2b0c3b;
+    border-radius: 15px;
+    border: 2px solid #5a2e6a;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 55px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.tabla-recientes-wrapper table {
+    width: auto;
+    border-collapse: collapse;
+    background: transparent;
+    gap: 50px;
+}
+
+.tabla-recientes-wrapper th,
+.tabla-recientes-wrapper td {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.tabla-recientes-wrapper .circle-red,
+.tabla-recientes-wrapper .circle-black,
+.tabla-recientes-wrapper .circle-green {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+
+.tabla-recientes-wrapper .circle-red:hover,
+.tabla-recientes-wrapper .circle-black:hover,
+.tabla-recientes-wrapper .circle-green:hover {
+    transform: scale(1.1);
+}
+
+.circle-number {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* Círculos de historial con especificidad alta */
+.custom-table .circle-red,
+.tabla-recientes-wrapper .circle-red { 
+    background-color: #dc3545 !important; 
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.custom-table .circle-black,
+.tabla-recientes-wrapper .circle-black { 
+    background-color: #212529 !important; 
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.custom-table .circle-green,
+.tabla-recientes-wrapper .circle-green { 
+    background-color: #198754 !important; 
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.custom-table .circle-empty,
+.tabla-recientes-wrapper .circle-empty {
+    background: linear-gradient(135deg, #6c757d, #495057) !important;
+    color: #fff !important;
+    opacity: 0.5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+/* ---------------------- */
+/* RULETA PRINCIPAL MEJORADA */
+.ruleta-img {
+    border-radius: 50%;
+    box-shadow: 
+        0 0 50px 15px rgba(255,215,0,0.3),
+        0 0 80px 25px rgba(139,69,19,0.2),
+        inset 0 0 50px rgba(0,0,0,0.3);
+    max-width: 320px;
+    height: 320px;
+    transition: all 0.5s ease;
+    border: 8px solid #8b4513;
+    position: relative;
+}
+
+.ruleta-img:hover {
+    transform: rotate(10deg) scale(1.02);
+    box-shadow: 
+        0 0 60px 20px rgba(255,215,0,0.5),
+        0 0 100px 30px rgba(139,69,19,0.3),
+        inset 0 0 50px rgba(0,0,0,0.3);
+}
+
+/* ---------------------- */
+/* MESA DE RULETA NUMEROS 0-36 MEJORADA */
+.mesa {
+    background: linear-gradient(135deg, #2c1810, #4a2c2a);
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: inset 0 4px 15px rgba(0,0,0,0.5), 0 8px 25px rgba(0,0,0,0.3);
+    border: 3px solid #8b4513;
+}
+
+.celda {
+    flex: 1 0 8%;
+    min-width: 60px;
+    height: 60px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 900;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.celda:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255,215,0,0.6);
+    border-color: #ffd700;
+}
+
+.celda-0 { 
+    background: linear-gradient(135deg, #228B22, #32CD32);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
+}
+.celda-rojo { 
+    background: linear-gradient(135deg, #DC143C, #FF4500);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
+}
+.celda-negro { 
+    background: linear-gradient(135deg, #2F2F2F, #000000);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
+}
+
+/* ---------------------- */
+/* APUESTAS EXTERNAS MEJORADAS */
+.apuestas-externas-wrapper {
+    background: linear-gradient(135deg, #2c1810, #4a2c2a);
+    padding: 25px;
+    border-radius: 20px;
+    border: 3px solid #8b4513;
+    box-shadow: inset 0 4px 15px rgba(0,0,0,0.5), 0 8px 25px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.apuestas-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+}
+
+.celda-externa {
+    flex: 1 0 22%;
+    min-width: 120px;
+    height: 90px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+}
+
+.celda-externa::before {
+    content: attr(data-payout);
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 0.7em;
+    opacity: 0.7;
+    background: rgba(255,215,0,0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.bet-label {
+    font-size: 1.1em;
+    font-weight: 900;
+    margin-bottom: 2px;
+}
+
+.bet-numbers {
+    font-size: 0.8em;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.celda-externa:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,215,0,0.6);
+    border-color: #ffd700;
+}
+
+.docena1, .docena2, .docena3, .mitad1, .par, .impar, .mitad2 { 
+    background: linear-gradient(135deg, #4a148c, #6a1b9a);
+}
+.rojo { 
+    background: linear-gradient(135deg, #DC143C, #FF4500);
+}
+.negro { 
+    background: linear-gradient(135deg, #2F2F2F, #000000);
+}
+
+/* ---------------------- */
+/* FONDO DEL JUEGO MEJORADO */
+.juego-fondo {
+    background: linear-gradient(135deg, rgba(58,13,60,0.95), rgba(74,44,92,0.95));
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1400px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.juego-fondo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.tabla-recientes-wrapper td {
+    padding: 0 20px;
+}
+
+.tabla-recientes-wrapper th {
+    color: #ffffff;
+}
+
+.celda-externa:hover,
+.celda:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* ---------------------- */
+/* SECCIONES (Reglas) */
+section {
+    background-color: #3a0d3c;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 30px auto;
+    padding: 40px 50px;
+    max-width: 1100px;
+    box-shadow: 0 10px 0px rgba(0,0,0,0.6);
+}
+
+section h2 {
+    font-family: 'Overpass', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #ffffff;
+}
+
+section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #e0e0e0;
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+section a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#reglas p,
+#tipos-apuesta p,
+#pagos p,
+#responsable p {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+#reglas p:hover,
+#tipos-apuesta p:hover,
+#pagos p:hover,
+#responsable p:hover {
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* ---------------------- */
+/* FOOTER */
+footer {
+    background-color: #523c5c;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* ---------------------- */
+/* FUENTE MÁS GRUESA Y SOMBRAS */
+#hero h1,
+section h2 {
+    font-weight: 900;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+/* Footer (Mantener como está, asumiendo que no se modifica por la imagen) */
+.container-fluid .row.p-5 {
+  background-color: #523c5c !important;
+}
+
+.container-fluid .row .col-xs-12,
+.container-fluid .row .col-md-6,
+.container-fluid .row .col-lg-3 {
+  color: #ffffff;
+}
+
+.container-fluid .row .h3,
+.container-fluid .row .h5 {
+  color: #ffffff;
+}
+
+.container-fluid .row .text-secondary {
+  color: #e0e0e0 !important;
+}
+
+/* ---------------------- */
+/* BOTONES MEJORADOS Y EFECTOS MODERNOS */
+
+/* Botones generales mejorados */
+.btn:not(.btn-jugar), button:not(.btn-jugar) {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:not(.btn-jugar)::before, button:not(.btn-jugar)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:not(.btn-jugar):hover::before, button:not(.btn-jugar):hover::before {
+    left: 100%;
+}
+
+/* Efectos de brillo en hover para elementos interactivos */
+.celda:hover, .celda-externa:hover {
+    animation: glow 0.5s ease-in-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(255,215,0,0.3); }
+    50% { box-shadow: 0 0 25px rgba(255,215,0,0.8); }
+    100% { box-shadow: 0 0 5px rgba(255,215,0,0.3); }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    background-clip: content-box;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .celda {
+        min-width: 40px;
+        height: 40px;
+        font-size: 0.9em;
+    }
+    
+    .celda-externa {
+        min-width: 100px;
+        height: 70px;
+        margin: 3px;
+    }    .ruleta-img {
+        max-width: 280px;
+        height: 280px;
+    }
+      /* Saldo card responsive */
+    .saldo-card {
+        min-width: auto;
+        max-width: 90vw;
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .saldo-amount-new {
+        font-size: 2.5rem;
+    }
+    
+    .saldo-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .saldo-info {
+        text-align: center;
+    }
+}
+
+/* ============================
+   TÍTULO HERO DE LA RULETA
+   ============================ */
+
+.hero-title-container {
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(76,0,92,0.9) 50%, rgba(0,0,0,0.8) 100%);
+    padding: 3rem 0;
+    margin: 2rem 0;
+    border-radius: 20px;
+    border: 3px solid #d4af37;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.5),
+        inset 0 0 50px rgba(212,175,55,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(212,175,55,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,215,0,0.15) 0%, transparent 50%);
+    pointer-events: none;
+    animation: heroShimmer 4s ease-in-out infinite alternate;
+}
+
+.hero-title-wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 
+        0 0 20px rgba(212,175,55,0.8),
+        0 0 40px rgba(255,215,0,0.6),
+        0 0 60px rgba(212,175,55,0.4);
+    margin: 0;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.title-icon {
+    font-size: 3.5rem;
+    animation: iconRotate 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.8));
+}
+
+.title-main {
+    background: linear-gradient(45deg, #d4af37, #fff700, #d4af37, #ffed4e);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    position: relative;
+}
+
+.title-subtitle {
+    font-size: 2rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(212,175,55,0.6);
+}
+
+.hero-subtitle {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.subtitle-text {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle-sparkles {
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-weight: 700;
+    letter-spacing: 2px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes heroShimmer {
+    0% {
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(212,175,55,0.2) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255,215,0,0.15) 0%, transparent 50%);
+    }
+    100% {
+        background: 
+            radial-gradient(circle at 80% 80%, rgba(212,175,55,0.3) 0%, transparent 50%),
+            radial-gradient(circle at 20% 20%, rgba(255,215,0,0.2) 0%, transparent 50%);
+    }
+}
+
+@keyframes iconRotate {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.1); }
+    75% { transform: rotate(5deg) scale(1.1); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(212,175,55,0.8);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.05);
+        text-shadow: 0 0 20px rgba(212,175,55,1);
+    }
+}
+
+/* Responsive para el título hero */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+        gap: 0.5rem;
+    }
+    
+    .title-icon {
+        font-size: 2.5rem;
+    }
+    
+    .title-subtitle {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitle-text {
+        font-size: 1.4rem;
+    }
+    
+    .subtitle-sparkles {
+        font-size: 1rem;
+    }
+    
+    .hero-title-container {
+        padding: 2rem 1rem;
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .title-icon {
+        font-size: 2rem;
+    }
+    
+    .title-subtitle {
+        font-size: 1.2rem;
+    }
+}

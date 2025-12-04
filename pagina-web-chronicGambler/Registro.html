@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/Union.css">
+</head>
+
+<body>
+    <!-- Inicio Header -->
+    <header class="barra-arriba">
+        <div class="container d-flex align-items-center">
+            <!-- Logo a la izquierda -->
+            <a class="navbar-brand me-4" href="/">
+                <img src="img/logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
+            </a>
+
+            <!-- Opciones centradas -->
+            <nav class="main-nav flex-grow-1">
+                <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0">
+                    <li><a href="Index.html">Inicio</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li><a href="reglas.html">Cómo jugar</a></li>
+                    <li><a href="infoAplicacion.html">Información</a></li>
+                    <li><a href="billetera.html">Billetera</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botón Jugar a la derecha -->
+            <div class="ms-auto">
+                <a href="img/ruleta.html" class="btn btn-jugar">JUGAR</a>
+            </div>
+        </div>
+    </header>
+    <!-- Formulario de registro -->
+    <div class="register-container">
+        <div class="register-image">
+            <img src="img/Ruleta-de-casino-1024x1024.jpg" alt="Imagen de Registro">
+        </div>
+        <div class="register-content">
+            <div class="register-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Crear Cuenta</h2>
+            </div>
+            <div class="register-form">
+                <form id="formRegistro">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                <input type="date" class="form-control" id="fecha-nacimiento">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="Usuario" class="form-label">Nombre de Usuario</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="Usuario"
+                                    placeholder="Ingresa tu nombre de usuario" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email-reg" class="form-label">Correo Electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email-reg"
+                                    placeholder="Ingresa tu correo electrónico" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="password-reg" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password-reg"
+                                    placeholder="Ingresa tu contraseña" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="confirm-password"
+                                    placeholder="Confirma tu contraseña" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-register w-100">Registrarse</button>
+                </form>
+                <div class="divider">
+                    <span>¿Ya tienes cuenta? <a href="Sesion.html">Inicia sesión aquí</a></span>
+                </div>
+                <div class="social-register">
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="source/js/config.js"></script>
+    <script src="source/js/app.js"></script>
+    <script src="source/js/auth.js"></script>
+</body>
+
+</html>

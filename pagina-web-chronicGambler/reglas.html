@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Cómo jugar - Ruleta</title> 
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> 
+
+  <link rel="stylesheet" href="css/GuliCSS.css"> 
+</head>
+<body>
+
+<header class="barra-arriba">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand me-4" href="index.html">
+      <img src="img/logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
+    </a>
+
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+        <li><a href="reglas.html">Cómo jugar</a></li>
+        <li><a href="infoAplicacion.html">Información</a></li>
+        <li><a href="billetera.html">Billetera</a></li>
+      </ul>
+    </nav>
+
+    <div class="ms-auto">
+      <a href="ruleta.html" class="btn btn-jugar">JUGAR</a>
+    </div>
+  </div>
+</header>
+
+<div class="juego-fondo"> 
+
+  <section id="reglas" class="container my-4 p-4 rounded"> 
+    <h2>Reglas de la Ruleta</h2> 
+    <p>La ruleta europea cuenta con 37 casillas numeradas del 0 al 36. El 0 es de color verde, mientras que los demás alternan entre rojo y negro. Cada ronda comienza con el giro de la rueda y el lanzamiento de la bola, cuyo resultado determina las apuestas ganadoras.</p>
+    <p>Las apuestas se dividen según el riesgo y el pago. Conocer estas reglas permite realizar apuestas conscientes y aprovechar las probabilidades de cada tipo de apuesta.</p>
+    <p>El 0 otorga la ventaja a la casa, garantizando que el casino mantenga un margen de ganancia en cada ronda.</p>
+  </section>
+
+  <section id="tipos-apuesta" class="container my-4 p-4 rounded">
+    <h2>Tipos de Apuesta</h2>
+    <p>Las apuestas internas cubren números específicos y ofrecen pagos mayores, incluyendo pleno (1 número), caballo (2 números), calle (3), cuadro (4) y seisena (6). Cuantos más números cubres, menor es el pago.</p>
+    <p>Las apuestas externas abarcan categorías más amplias: color (rojo o negro), par o impar, falta (1–18) / pasa (19–36), docenas y columnas. Estas apuestas tienen mayor probabilidad de éxito y pagos más bajos.</p>
+  </section>
+
+  <section id="pagos" class="container my-4 p-4 rounded">
+    <h2>Probabilidades y Pagos</h2>
+    <p>Un pleno ofrece un pago de 35:1 con probabilidad de 2,7%. Docenas y columnas pagan 2:1 con probabilidad de 32,4%, mientras que color, par/impar o falta/pasa pagan 1:1 con probabilidad cercana al 48,6%.</p>
+    <p>Comprender estas cifras permite planificar apuestas y gestionar riesgos de manera estratégica, sin dejar de tener en cuenta la ventaja de la casa.</p>
+  </section>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row p-5 pb-2 bg-black text-white">
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <p class="h3">Dirección</p>
+            <p class="text-secondary">Ejercito 441, Santiago.</p>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <p class="h5 mb-3">Recursos</p>
+            <div class="mb-2">
+                <a class="text-secondary text-decoration-none" href="#">Blog</a>
+            </div>
+            <div class="mb-2">
+                <a class="text-secondary text-decoration-none" href="#">Preguntas Frecuentes</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <p class="h5 mb-3">Links</p>
+            <div class="mb-2">
+                <a class="text-secondary text-decoration-none" href="#">Términos y condiciones</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <p class="h5 mb-3">Contactos</p>
+            <div class="mb-2">
+                <a class="text-secondary text-decoration-none" href="#">Instagram</a>
+            </div>
+            <div class="mb-2">
+                <a class="text-secondary text-decoration-none" href="#">Facebook</a>
+            </div>
+        </div>
+        <div class="col-xs-12 pt-4">
+            <p class="text-white text-center">© 2025 - Todos los derechos reservados</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="source/js/config.js"></script>
+<script src="source/js/app.js"></script>
+
+</body>
+</html>

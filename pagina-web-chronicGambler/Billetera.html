@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Billetera Virtual</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/FranCSS.css"> 
+
+    <link rel="icon" href="img/icono_pagina.jpeg">
+</head>
+<body>
+
+<header class="barra-arriba">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand me-4" href="index.html">
+      <img src="img/logo.png" alt="Logo" width="40" height="40" class="rounded-circle">
+    </a>
+
+    <nav class="main-nav flex-grow-1">
+      <ul class="menu-opciones-barra d-flex justify-content-center align-items-center mb-0">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+        <li><a href="reglas.html">Cómo jugar</a></li>
+        <li><a href="infoAplicacion.html">Información</a></li>
+        <li><a href="billetera.html">Billetera</a></li>
+      </ul>
+    </nav>
+
+    <div class="ms-auto">
+      <a href="ruleta.html" class="btn btn-jugar">JUGAR</a>
+    </div>
+  </div>
+</header>
+
+<div class="main-content-wrapper">
+    <div class="page-title">
+        <h1>💰 Mi Billetera</h1>
+        <p>Hola, <span id="billeteraUsuarioNombre">Usuario</span>. Administra tu dinero.</p>
+    </div>
+
+    <div class="simple-wallet-container">
+        
+        <div class="balance-section">
+            <div class="balance-card">
+                <div class="balance-icon">💎</div>
+                <div class="balance-info">
+                    <h2>Tu Saldo</h2>
+                    <div class="balance-amount" id="current-balance">Cargando...</div>
+                    <p class="balance-subtitle">Disponible para jugar</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-actions">
+            <button class="action-button add-money" id="btnAbrirCarga">
+                <div class="btn-icon">➕</div>
+                <div class="btn-text">
+                    <h3>Agregar Dinero</h3>
+                    <p>Depositar fondos a tu cuenta</p>
+                </div>
+            </button>
+
+            <button class="action-button withdraw-money" id="btnAbrirRetiro">
+                <div class="btn-icon">➖</div>
+                <div class="btn-text">
+                    <h3>Retirar Dinero</h3>
+                    <p>Sacar dinero de tu cuenta</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="form-section" id="add-money-form" style="display: none;">
+            <div class="form-card">
+                <div class="form-header">
+                    <h3>💰 Agregar Dinero</h3>
+                    <button class="close-btn btnCerrarForm">✕</button>
+                </div>
+                <div class="form-body">
+                    <div class="input-group">
+                        <label>Cantidad a agregar:</label>
+                        <input type="number" id="add-amount" placeholder="Ej: 50000" min="1000">
+                        <div class="quick-amounts">
+                            <button class="quick-add" data-amount="10000">$10,000</button>
+                            <button class="quick-add" data-amount="50000">$50,000</button>
+                            <button class="quick-add" data-amount="100000">$100,000</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Método de pago:</label>
+                        <select id="payment-method">
+                            <option value="tarjeta">💳 Tarjeta de Crédito/Débito</option>
+                            <option value="banco">🏦 Transferencia Bancaria</option>
+                        </select>
+                    </div>
+                    <button class="confirm-btn add-btn" id="btnConfirmarCarga">
+                        <span class="btn-icon">✅</span> Confirmar Depósito
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section" id="withdraw-money-form" style="display: none;">
+            <div class="form-card">
+                <div class="form-header">
+                    <h3>🏦 Retirar Dinero</h3>
+                    <button class="close-btn btnCerrarForm">✕</button>
+                </div>
+                <div class="form-body">
+                    <div class="input-group">
+                        <label>Cantidad a retirar:</label>
+                        <input type="number" id="withdraw-amount" placeholder="Ej: 25000" min="1000">
+                        <div class="available-balance">
+                            Saldo disponible: <span id="available-balance">---</span>
+                        </div>
+                    </div>
+                    <button class="confirm-btn withdraw-btn" id="btnConfirmarRetiro">
+                        <span class="btn-icon">✅</span> Confirmar Retiro
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3>📊 Últimos Movimientos</h3>
+            <div class="transaction-list" id="transaction-list">
+                <p style="text-align:center; color:#888;">Cargando movimientos...</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script src="source/js/config.js"></script>
+<script src="source/js/app.js"></script>
+<script src="source/js/billetera.js"></script>
+
+</body>
+</html>
