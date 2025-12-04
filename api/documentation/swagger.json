@@ -1,0 +1,2457 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Casino UDP",
+    "version": "1.0.0",
+    "description": "Documentación oficial de la API para el sistema de Casino UDP.\nNota: casi todos los endpoints exigen Authorization: Bearer udp.2025 (demo).",
+    "contact": {
+      "name": "Equipo Casino UDP"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://udp.coningenio.cl/2025-2/chronicGamblers/api/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "Opaque demo token"
+      }
+    },
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "success"
+        ]
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "persona_id": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "password",
+          "persona_id",
+          "activo"
+        ]
+      },
+      "UsuarioAuth": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "persona_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "persona_id"
+        ]
+      },
+      "AuthLoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "sebastian.cabezas@mail.udp.cl"
+          },
+          "password": {
+            "type": "string",
+            "example": "19a8d6f2afc223aaa8a1afe01c7ac6c6"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "AuthLoginResponse": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "example": "udp.2025"
+          },
+          "refresh_token": {
+            "type": "string",
+            "example": "udp.2025.refresh"
+          },
+          "token_type": {
+            "type": "string",
+            "example": "Bearer"
+          },
+          "expires_in": {
+            "type": "integer",
+            "example": 3600
+          },
+          "user": {
+            "$ref": "#/components/schemas/UsuarioAuth"
+          }
+        },
+        "required": [
+          "access_token",
+          "refresh_token",
+          "token_type",
+          "expires_in",
+          "user"
+        ]
+      },
+      "AuthRefreshRequest": {
+        "type": "object",
+        "properties": {
+          "refresh_token": {
+            "type": "string",
+            "example": "udp.2025.refresh"
+          }
+        },
+        "required": [
+          "refresh_token"
+        ]
+      },
+      "AuthRefreshResponse": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "example": "udp.2025"
+          },
+          "token_type": {
+            "type": "string",
+            "example": "Bearer"
+          },
+          "expires_in": {
+            "type": "integer",
+            "example": 3600
+          }
+        },
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in"
+        ]
+      },
+      "AuthRegisterRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "persona_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "AuthRegisterResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "example": "Usuario creado"
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string"
+              },
+              "persona_id": {
+                "type": "integer"
+              },
+              "activo": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "username",
+              "persona_id",
+              "activo"
+            ]
+          }
+        },
+        "required": [
+          "success",
+          "user"
+        ]
+      },
+      "ApellidoOrden": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Genero": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Nacionalidad": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "DocumentoIdentidadTipo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "DocumentoIdentidad": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "valor": {
+            "type": "string"
+          },
+          "nombres": {
+            "type": "string"
+          },
+          "apellidos": {
+            "type": "object",
+            "properties": {
+              "materno": {
+                "type": "string"
+              },
+              "paterno": {
+                "type": "string"
+              },
+              "orden": {
+                "$ref": "#/components/schemas/ApellidoOrden"
+              }
+            }
+          },
+          "nacionalidad": {
+            "$ref": "#/components/schemas/Nacionalidad"
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/DocumentoIdentidadTipo"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Persona": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "documento_identidad": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentoIdentidad"
+            }
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Juego": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "reglas_url": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "JuegoColor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "JuegoOpcionApuesta": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "pago": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "MesaEstado": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Mesa": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apuesta": {
+            "type": "object",
+            "properties": {
+              "minima": {
+                "type": "integer"
+              },
+              "maxima": {
+                "type": "integer"
+              }
+            }
+          },
+          "juego": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "reglas": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "estado": {
+            "$ref": "#/components/schemas/MesaEstado"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "MesaHistoricoItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Partida": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PartidaEstado": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PartidaResultado": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PartidaDetalle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "partida": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
+          },
+          "opcion": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "pago": {
+                "type": "integer"
+              }
+            }
+          },
+          "resultado": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "nombre": {
+                "type": "string"
+              }
+            }
+          },
+          "cantidad": {
+            "type": "integer"
+          },
+          "monto": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Billetera": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "usuario": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
+          },
+          "saldo": {
+            "type": "integer"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BilleteraHistorico": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "billetera_id": {
+            "type": "integer"
+          },
+          "fecha": {
+            "type": "string"
+          },
+          "tipo_id": {
+            "type": "integer"
+          },
+          "monto": {
+            "type": "integer"
+          },
+          "partida_id": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BilleteraRegistroHistoricoTipo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "suma": {
+            "type": "boolean"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Menu": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "sesion": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "MenuCreate": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "sesion": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "descripcion",
+          "sesion",
+          "url"
+        ]
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check de la API",
+        "description": "Endpoint público para verificar disponibilidad.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "ts": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login/": {
+      "post": {
+        "summary": "Login y obtención de tokens (demo)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthLoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthLoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Faltan campos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credenciales inválidas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh/": {
+      "post": {
+        "summary": "Refresca token (demo)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRefreshRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthRefreshResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "refresh token inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register/": {
+      "post": {
+        "summary": "Registra usuario (demo)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthRegisterResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Faltan campos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Usuario ya existe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error en inserción",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/": {
+      "get": {
+        "summary": "Lista usuarios o busca por username",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Buscar por username exacto",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK (lista o un objeto si se usa username y existe)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Usuario"
+                      }
+                    },
+                    {
+                      "$ref": "#/components/schemas/Usuario"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Usuario no encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{id}/": {
+      "get": {
+        "summary": "Obtiene Usuario por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usuario"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apellido_orden/": {
+      "get": {
+        "summary": "Lista Apellido Orden",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ApellidoOrden"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apellido_orden/{id}/": {
+      "get": {
+        "summary": "Obtiene Apellido Orden por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApellidoOrden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documento_identidad_tipo/": {
+      "get": {
+        "summary": "Lista Documento Identidad Tipo",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentoIdentidadTipo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documento_identidad_tipo/{id}/": {
+      "get": {
+        "summary": "Obtiene Documento Identidad Tipo por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentoIdentidadTipo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documento_identidad/": {
+      "get": {
+        "summary": "Obtiene documentos por personaId",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "personaId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentoIdentidad"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/genero/": {
+      "get": {
+        "summary": "Lista Genero",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Genero"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/genero/{id}/": {
+      "get": {
+        "summary": "Obtiene Genero por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Genero"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nacionalidad/": {
+      "get": {
+        "summary": "Lista Nacionalidad",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Nacionalidad"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nacionalidad/{id}/": {
+      "get": {
+        "summary": "Obtiene Nacionalidad por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Nacionalidad"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persona/": {
+      "get": {
+        "summary": "Lista Persona",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Persona"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persona/{id}/": {
+      "get": {
+        "summary": "Obtiene Persona por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Persona"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera/": {
+      "get": {
+        "summary": "Lista Billetera",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Billetera"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera/{id}/": {
+      "get": {
+        "summary": "Obtiene Billetera por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Billetera"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera_historico/": {
+      "get": {
+        "summary": "Lista Billetera Historial",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BilleteraHistorico"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera_historico/{id}/": {
+      "get": {
+        "summary": "Obtiene Billetera Historial por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BilleteraHistorico"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera_registro_historico_tipo/": {
+      "get": {
+        "summary": "Lista Billetera Registro Historico Tipo",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BilleteraRegistroHistoricoTipo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/billetera_registro_historico_tipo/{id}/": {
+      "get": {
+        "summary": "Obtiene Billetera Registro Historico Tipo por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BilleteraRegistroHistoricoTipo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego/": {
+      "get": {
+        "summary": "Lista Juego",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Juego"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego/{id}/": {
+      "get": {
+        "summary": "Obtiene Juego por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Juego"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Juego"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego_color/": {
+      "get": {
+        "summary": "Lista Juego Color",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JuegoColor"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego_color/{id}/": {
+      "get": {
+        "summary": "Obtiene Juego Color por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JuegoColor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego_opcion_apuesta/": {
+      "get": {
+        "summary": "Lista Juego Opcion Apuesta",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JuegoOpcionApuesta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/juego_opcion_apuesta/{id}/": {
+      "get": {
+        "summary": "Obtiene Juego Opcion Apuesta por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JuegoOpcionApuesta"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa_estado/": {
+      "get": {
+        "summary": "Lista Mesa Estado",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MesaEstado"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa_estado/{id}/": {
+      "get": {
+        "summary": "Obtiene Mesa Estado por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaEstado"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa/": {
+      "get": {
+        "summary": "Lista Mesa",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Mesa"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa/{id}/": {
+      "get": {
+        "summary": "Obtiene Mesa por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mesa"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa_historico/": {
+      "get": {
+        "summary": "Lista Mesa Historico (simplificado)",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MesaHistoricoItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mesa_historico/{id}/": {
+      "get": {
+        "summary": "Obtiene Mesa Historico por ID (simplificado)",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaHistoricoItem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MesaHistoricoItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida/": {
+      "get": {
+        "summary": "Lista Partida",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Partida"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida/{id}/": {
+      "get": {
+        "summary": "Obtiene Partida por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Partida"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_detalle/": {
+      "get": {
+        "summary": "Lista Partida Detalle",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PartidaDetalle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_detalle/{id}/": {
+      "get": {
+        "summary": "Obtiene Partida Detalle por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartidaDetalle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_estado/": {
+      "get": {
+        "summary": "Lista Partida Estado",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PartidaEstado"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_estado/{id}/": {
+      "get": {
+        "summary": "Obtiene Partida Estado por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartidaEstado"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_resultado/": {
+      "get": {
+        "summary": "Lista Partida Resultado",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PartidaResultado"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partida_resultado/{id}/": {
+      "get": {
+        "summary": "Obtiene Partida Resultado por ID",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartidaResultado"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menu/": {
+      "get": {
+        "summary": "Lista el menú",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Menu"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Crea opción de menú",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Creado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "summary": "Reset de menú (demo, token especial)",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reseteado completo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/menu/{id}/": {
+      "put": {
+        "summary": "Actualiza opción de menú",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Actualizado sin errores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Desactiva un menú",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Eliminado sin errores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Reactiva un menú",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Reactivado sin errores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Prohibido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
